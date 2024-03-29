@@ -1,0 +1,109 @@
+<div>
+    <div class="row">
+        <div class="col-12">
+            <div class="page_title_box d-flex align-items-center justify-content-between">
+                <div class="page_title_left d-flex align-items-center">
+                    <h3 class="f_s_25 f_w_700 dark_text mr_30">ປິ່ນຂໍ້ມູນໃບໂອນ</h3>
+                    <ol class="breadcrumb page_bradcam mb-0">
+                        <li class="breadcrumb-item"><a href="javascript:void(0);">ໜ້າຫຼັກ</a></li>
+                        <li class="breadcrumb-item active">ຂໍ້ມູນໃບໂອນ</li>
+                    </ol>
+                </div>
+                <a href="{{route('pdf-aon')}}" target="_bank" class="white_btn3"><i class="fa fa-print"></i></a>
+            </div>
+        </div>
+    </div>
+    <div class="row ">
+        <div class="col-12 QA_section">
+            <div class="card QA_table ">
+                <div class="card-header">
+                    ວັນທີ :
+                    <strong>{{now()}}</strong>
+                    <span class="float-end"> <strong>ສະຖານະ:</strong> <span class="text-danger">ລໍຖ້າປິ່ນ</span></span>
+                </div>
+                <div class="card-body">
+                    <div class="row mb-4">
+                        <div class="col-12">
+
+                                <table width="100%" class="border-buttom">
+                                    <tr height="98.26px">
+                                        <td colspan="2" width="627.4px">
+                                            <div class="row">
+                                                <div class="col-4">
+                                                    <img src="{{asset('backend/img/logo-nbb.png')}}" alt width="100px">
+                                                </div>
+                                                <div class="col-4 text-center">
+                                                    <h3><b>ທະນາຄານ ນະໂຍບາຍ</b></h3>
+                                                    <h3 class="timenewroman"><b>NAYOBY BANK</b></h3>
+                                                    <p class="colorblack">ວັນທີ ............./............/.................</p>
+                                                </div>
+                                                <div class="col-4">
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <td width="147.4px" class="text-center td-border2">
+                                            <p class="font20 colorblack">ໃບຂໍໂອນເງິນ</p>
+                                            <p class="colorblack">ສະບັບທີ 1</p>
+                                            <p class="colorblack">ຫຼັກຖານການຈົດໜີ້</p>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td colspan="2" width="627.4px" class="td-border2"><h5 class="colorblack">ສຳນັກງານສົ່ງ :</h5></td>
+                                        <td width="147.4px" class="text-center td-border2"><p class="colorblack">ສຳລັບພະນັກງານທະນາຄານ</p></td>
+                                    </tr>
+                                    <tr>
+                                        <td width="415.7px" class="td-border2">
+                                            <h5 class="colorblack">ຜູ້ໂອນ:</h5>
+                                            <p class="colorblack text-center">.....................................</p>
+                                        </td>
+                                        <td width="192.7px" class="td-border2">
+                                            <h5 class="colorblack">ໜີ້ <span class="font12">ບັນຊີ:</span></h5>
+                                            <p class="colorblack text-center">.....................................</p>
+                                        </td>
+                                        <td width="147.4px" rowspan="2" class="td-border2 text-center" style="vertical-align: baseline"><h5 class="colorblack" >ຜູ້ລົງບັນຊີ</h5></td>
+                                    </tr>
+                                    <tr>
+                                        <td colspan="2" width="627.4px" class="td-border2">
+                                            <h5 class="colorblack">ຈຳນວນເງິນ :</h5>
+                                            <h5 class="colorblack">(ຂຽນເປັນໂຕໜັງສື)  &emsp; <span class="text-center">............</span></h5>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td width="415.7px" class="td-border2">
+                                            <h5 class="colorblack">ຜູ້ຮັບໂອນ:</h5>
+                                            <p class="colorblack text-center">.....................................</p>
+                                        </td>
+                                        <td width="192.7px" class="td-border2">
+                                            <h5 class="colorblack">ມີ <span class="font12">ບັນຊີ:</span></h5>
+                                            <p class="colorblack text-center">.....................................</p>
+                                        </td>
+                                        <td width="147.4px" rowspan="2" class="td-border2 text-center" style="vertical-align: baseline"><h5 class="colorblack" >ຜູ້ກວດກາບັນຊີ</h5></td>
+                                    </tr>
+                                    <tr>
+                                        <td colspan="2" width="627.4px" class="td-border2">
+                                            <h5 class="colorblack">ສຳນັກງານຮັບ :</h5>
+                                        </td>
+                                    </tr>
+                                    <tr height="117.1px">
+                                        <td width="415.7px" class="td-border2">
+                                            <h5 class="colorblack">ເນື້ອໃນການໂອນເງິນ:</h5>
+                                            <p class="colorblack text-center">.....................................</p>
+                                        </td>
+                                        <td width="192.7px" class="td-border2 text-center" style="vertical-align: bottom">
+                                            <h5 class="colorblack mb-0" ><hr></h5>
+                                            <h5 class="colorblack mb-0" >ລາຍເຊັນຜູ້ສະເໜີໂອນເງິນ</h5>
+                                        </td>
+                                        <td width="147.4px" class="td-border2 text-center" style="vertical-align: bottom">
+                                            <h5 class="colorblack mb-0" ><hr></h5>
+                                            <h5 class="colorblack mb-0" >ຜູ້ຖືກມອບອຳນາດ</h5>
+                                        </td>
+                                    </tr>
+                                </table>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

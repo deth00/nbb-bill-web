@@ -1,0 +1,30 @@
+.td-border2 {
+    border: 2px solid;
+}
+
+.border-buttom {
+    border-bottom: 2px solid;
+}
+
+.phetsarathot {
+    font-family: 'Phetsarath OT';
+}
+
+.timenewroman {
+    font-family: 'Times New Roman';
+}
+
+.font20 {
+    font-size: 20px;
+}
+.font12 {
+    font-size: 12px;
+}
+
+.colorblack {
+    color: black;
+}
+
+.ver-baseline {
+    vertical-align: baseline;
+}
