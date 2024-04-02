@@ -27,11 +27,9 @@
                     <div class="white_card card_height_100 mb_30">
                         <div class="white_card_body">
                             <div class="col-2">
-                                <button class="btn btn-info text-white mt-3">
+                                <a href="{{route('create-aon')}}" class="btn btn-info text-white mt-3">
                                     ເພີ່ມຂໍ້ມູນ
-                                </button>
-                                <button type="button" class="btn btn-primary" wire:click="print">
-                                        <i class="fa fa-print"></i>
+                                </a>
                             </div>
                         </div>
                     </div>
@@ -85,29 +83,74 @@
                         </div>
                         <div class="white_card_body">
                             <div class="table-responsive">
-                                <table border="2" width="100%">
+                                <table border="2" width="100%" class="table table-bordered">
                                     <thead>
                                         <tr class="text-center">
-                                            <th> ລຳດັບ </th>
-                                            <th> ເລກທີ </th>
-                                            <th> ວັນທີ </th>
-                                            <th> ສຳນັກງານສົ່ງ </th>
-                                            <th> ຜູ້ໂອນ </th>
-                                            <th> ຈຳນວນເງິນ </th>
-                                            <th> ຜູ້ເຮັດທຸລະກຳ </th>
-                                            <th> ປະເພດ </th>
-                                            <th> ສະຖານະ </th>
-                                            <th> ປຸ່ມກົດ </th>
+                                            <th class="td-border2"> ລຳດັບ </th>
+                                            <th class="td-border2"> ເລກທີ </th>
+                                            <th class="td-border2"> ວັນທີ </th>
+                                            <th class="td-border2"> ສຳນັກງານສົ່ງ </th>
+                                            <th class="td-border2"> ຜູ້ໂອນ </th>
+                                            <th class="td-border2"> ຈຳນວນເງິນ </th>
+                                            <th class="td-border2"> ຜູ້ເຮັດທຸລະກຳ </th>
+                                            <th class="td-border2"> ປະເພດ </th>
+                                            <th class="td-border2"> ສະຖານະ </th>
+                                            <th class="td-border2"> ປຸ່ມກົດ </th>
                                         </tr>
                                     </thead>
                                     <tbody>
                                         @php $no = 1; @endphp
+                                        @forelse ($bhaiaon as $key => $item)
+                                        <tr>
+                                            <td class="text-center td-border2 my-2">{{$no++}}</td>
+                                            <td class="text-center td-border2">{{$item->no}}</td>
+                                            <td class="text-center td-border2">
+                                                {{date('d/m/Y', strtotime($item->valuedt))}}</td>
+                                            <td class="text-center td-border2">{{$item->branch_send}}</td>
+                                            <td class="text-center td-border2">{{$item->name_aon}}</td>
+                                            <td class="text-right td-border2" style="text-align: right;">
+                                                {{number_format($item->money)}}</td>
+                                            <td class="text-center td-border2"></td>
+                                            <td class="text-center td-border2">
+                                                @if ($item->type == 'ISD')
+                                                <span class="badge bg-warning">ໂອນພາຍໃນ</span>
+                                                @else
+                                                <span class="badge bg-info">ໂອນຕ່າງແຂວງ</span>
+                                                @endif
+                                            </td>
+                                            <td class="text-center td-border2">
+                                                @if ($item->del == 1)
+                                                <span class="badge bg-primary">ຍັງບໍ່ທັນພິມ</span>
+                                                @elseif($item->del == 2)
+                                                <span class="badge bg-success">ພິມສຳເລັດ</span>
+                                                @else
+                                                <span class="badge bg-danger">ຍົກເລີກ</span>
+                                                @endif
+                                            </td>
+                                            <td class="text-center td-border2">
+                                                <button class="btn btn-secondary dropdown-toggle" type="button"
+                                                    id="dropdownMenuButton" data-bs-toggle="dropdown"
+                                                    aria-haspopup="true" aria-expanded="false">
+                                                    ຕົວເລືອກ
+                                                </button>
+                                                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                                    <a class="dropdown-item text-warning" href="#"><i class="fas fa-edit"></i> ແກ້ໄຂ</a>
+                                                    <a class="dropdown-item text-danger" href="#"><i class="fas fa-trash"></i> ຍົກເລີກ</a>
+                                                    <a class="dropdown-item text-info" href="{{route('print-aon',$item->id)}}"><i class="fas fa-eye"></i> ເບິ່ງ</a>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        @empty
+                                        <tr class="text-center">
+                                            <td colspan="10" style="color: #787878;">ບໍ່ມີຂໍ້ມູນຜູ້ໃຊ້ງານລະບົບ</td>
+                                        </tr>
+                                        @endforelse
                                     </tbody>
                                 </table>
                             </div>
                             <div class="row">
                                 <div class="col-12">
-                                    <span><br> ລວມຜູ້ໃຊ້ທັງໝົດ <span class="text-danger">1</span> ຄົນ</span>
+                                    <span><br> ລວມຜູ້ໃຊ້ທັງໝົດ <span class="text-danger">{{$count}}</span> ຄົນ</span>
                                 </div>
                             </div>
                         </div>

@@ -9,7 +9,7 @@
                         <li class="breadcrumb-item active">ຂໍ້ມູນໃບໂອນ</li>
                     </ol>
                 </div>
-                <a href="{{route('pdf-aon')}}" target="_bank" class="white_btn3"><i class="fa fa-print"></i></a>
+                <a href="{{route('pdf-aon',$hidId)}}" target="_bank" class="white_btn3"><i class="fa fa-print"></i></a>
             </div>
         </div>
     </div>
@@ -18,8 +18,8 @@
             <div class="card QA_table ">
                 <div class="card-header">
                     ວັນທີ :
-                    <strong>{{now()}}</strong>
-                    <span class="float-end"> <strong>ສະຖານະ:</strong> <span class="text-danger">ລໍຖ້າປິ່ນ</span></span>
+                    <strong>{{date('d/m/Y H:i:s', strtotime($data['created_at']))}}</strong>
+                    <span class="float-end"> <strong>ສະຖານະ:</strong> <span class="text-danger">@if($data['del'] == 1) ລໍຖ້າປິ່ນ @elseif($data['del'] == 2) ປິ່ນສຳເລັດ @else ຍົກເລີກ @endif</span></span>
                 </div>
                 <div class="card-body">
                     <div class="row mb-4">
@@ -35,7 +35,7 @@
                                                 <div class="col-4 text-center">
                                                     <h3><b>ທະນາຄານ ນະໂຍບາຍ</b></h3>
                                                     <h3 class="timenewroman"><b>NAYOBY BANK</b></h3>
-                                                    <p class="colorblack">ວັນທີ ............./............/.................</p>
+                                                    <h4 >ວັນທີ {{date('d/m/Y', strtotime($data['valuedt']))}}</h4>
                                                 </div>
                                                 <div class="col-4">
                                                 </div>
@@ -48,46 +48,46 @@
                                         </td>
                                     </tr>
                                     <tr>
-                                        <td colspan="2" width="627.4px" class="td-border2"><h5 class="colorblack">ສຳນັກງານສົ່ງ :</h5></td>
+                                        <td colspan="2" width="627.4px" class="td-border2"><h5 class="colorblack">ສຳນັກງານສົ່ງ : {{$data['branch_send']}}</h5></td>
                                         <td width="147.4px" class="text-center td-border2"><p class="colorblack">ສຳລັບພະນັກງານທະນາຄານ</p></td>
                                     </tr>
                                     <tr>
                                         <td width="415.7px" class="td-border2">
                                             <h5 class="colorblack">ຜູ້ໂອນ:</h5>
-                                            <p class="colorblack text-center">.....................................</p>
+                                            <h5 class="colorblack text-center">{{$data['name_aon']}}</h5>
                                         </td>
                                         <td width="192.7px" class="td-border2">
                                             <h5 class="colorblack">ໜີ້ <span class="font12">ບັນຊີ:</span></h5>
-                                            <p class="colorblack text-center">.....................................</p>
+                                            <h5 class="colorblack text-center">{{$data['acno_nee']}}</h5>
                                         </td>
                                         <td width="147.4px" rowspan="2" class="td-border2 text-center" style="vertical-align: baseline"><h5 class="colorblack" >ຜູ້ລົງບັນຊີ</h5></td>
                                     </tr>
                                     <tr>
                                         <td colspan="2" width="627.4px" class="td-border2">
-                                            <h5 class="colorblack">ຈຳນວນເງິນ :</h5>
-                                            <h5 class="colorblack">(ຂຽນເປັນໂຕໜັງສື)  &emsp; <span class="text-center">............</span></h5>
+                                            <h5 class="colorblack">ຈຳນວນເງິນ : #{{number_format($data['money'],2,',','.')}}#</h5>
+                                            <h5 class="colorblack">(ຂຽນເປັນໂຕໜັງສື)  &emsp; <span class="text-center">#{{$data['money_name']}}#</span></h5>
                                         </td>
                                     </tr>
                                     <tr>
                                         <td width="415.7px" class="td-border2">
                                             <h5 class="colorblack">ຜູ້ຮັບໂອນ:</h5>
-                                            <p class="colorblack text-center">.....................................</p>
+                                            <h5 class="colorblack text-center">{{$data['name_hub']}}</h5>
                                         </td>
                                         <td width="192.7px" class="td-border2">
                                             <h5 class="colorblack">ມີ <span class="font12">ບັນຊີ:</span></h5>
-                                            <p class="colorblack text-center">.....................................</p>
+                                            <h5 class="colorblack text-center">{{$data['acno_mee']}}</h5>
                                         </td>
                                         <td width="147.4px" rowspan="2" class="td-border2 text-center" style="vertical-align: baseline"><h5 class="colorblack" >ຜູ້ກວດກາບັນຊີ</h5></td>
                                     </tr>
                                     <tr>
                                         <td colspan="2" width="627.4px" class="td-border2">
-                                            <h5 class="colorblack">ສຳນັກງານຮັບ :</h5>
+                                            <h5 class="colorblack">ສຳນັກງານຮັບ : {{$data['branch_receive']}}</h5>
                                         </td>
                                     </tr>
                                     <tr height="117.1px">
                                         <td width="415.7px" class="td-border2">
                                             <h5 class="colorblack">ເນື້ອໃນການໂອນເງິນ:</h5>
-                                            <p class="colorblack text-center">.....................................</p>
+                                            <h5 class="colorblack text-center">{{$data['note']}}</h5>
                                         </td>
                                         <td width="192.7px" class="td-border2 text-center" style="vertical-align: bottom">
                                             <h5 class="colorblack mb-0" ><hr></h5>

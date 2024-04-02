@@ -41,9 +41,11 @@
     <link rel="stylesheet" href="{{asset('backend/css/style.css')}}" />
     <link rel="stylesheet" href="{{asset('backend/css/style1.css')}}" />
     <link rel="stylesheet" href="{{asset('backend/css/colors/default.css')}}" id="colorSkinCSS">
+    <!-- Notification css (Toastr) -->
+    <link href="{{asset('backend/libs/toastr/toastr.min.css')}}" rel="stylesheet" type="text/css">
 
     @livewireStyles
-    
+
 </head>
 
 <body class="crm_body_bg">
@@ -248,6 +250,28 @@
 
     <script src="{{asset('backend/js/dashboard_init.js')}}"></script>
     <script src="{{asset('backend/js/custom.js')}}"></script>
+    <script src="{{asset('backend/js/money.format.js')}}"></script>
+    <!-- Toastr js -->
+    <script src="{{asset('backend/libs/toastr/toastr.min.js')}}"></script>
+    <script src="{{asset('backend/js/pages/toastr.init.js')}}"></script>
+
+    <script>
+    window.Livewire.on('alert', param => {
+        toastr.options.positionClass = 'toast-bottom-right';
+        toastr[param['type']](param['message'], param['type']);
+    });
+
+    @if(Session::has('success'))
+    toastr.options.positionClass = 'toast-bottom-right';
+    toastr.success("{{Session::get('success') }}")
+    @elseif(Session::has('warning'))
+    toastr.options.positionClass = 'toast-bottom-right';
+    toastr.warning("{{Session::get('warning')}}")
+    @elseif(Session::has('error'))
+    toastr.options.positionClass = 'toast-bottom-right';
+    toastr.error("{{Session::get('error')}}")
+    @endif
+    </script>
 
     @stack('scripts')
 </body>

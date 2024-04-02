@@ -16,62 +16,62 @@
             <table width="100%" class="border-buttom">
                 <tr>
                     <td colspan="2"><span style="font-family: 'DejaVu Sans','Phetsarath OT';padding-left: 420px;">ເລກທີ:
-                            552147823</span></td>
+                            {{$data['no']}}</span></td>
                 </tr>
                 <tr>
                     <td style="padding-top: 20px;" colspan="2">
-                        <span style="font-family: 'Times New Roman';padding-left: 292px;">29
-                            &nbsp;&nbsp; 03 &nbsp;&nbsp;&nbsp; 2024</span>
+                        <span style="font-family: 'Times New Roman';padding-left: 292px;">{{date('d',strtotime($data['valuedt']))}}
+                            &nbsp;&nbsp; {{date('m',strtotime($data['valuedt']))}} &nbsp;&nbsp;&nbsp; {{date('Y',strtotime($data['valuedt']))}}</span>
                     </td>
                 </tr>
                 <tr>
                     <td style="padding-top: 23px;" colspan="2">
                         <span style="font-family: 'DejaVu Sans','Phetsarath OT';padding-left: 100px;">
-                            ສຳນັກງານໃຫຍ່</span>
+                        {{$data['branch_send']}}</span>
                     </td>
                 </tr>
                 <tr>
                     <td style="padding-top: 35px;">
                         <span style="font-family: 'DejaVu Sans','Phetsarath OT';padding-left: 70px;">
-                            ທ້າວ ພົງສະຫວັນ ບຸບຜາຈັນ</span>
+                            {{$data['name_aon']}}</span>
                     </td>
                     <td style="padding-top: 35px;">
                         <span style="font-family: 'Times New Roman';padding-left: 40px;">
-                        02010023520000000000000207</span>
+                            {{$data['acno_nee']}}</span>
                     </td>
                 </tr>
                 <tr>
                     <td style="padding-top: 15px;" colspan="2">
                         <span style="font-family:'Times New Roman';padding-left: 100px;">
-                            #10.000.000.000,00#</span>
+                            #{{number_format($data['money'],2,',','.')}}#</span>
                     </td>
                 </tr>
                 <tr>
                     <td colspan="2">
                         <span style="font-family: 'DejaVu Sans','Phetsarath OT';padding-left: 100px;">
-                            #ສິບຕື້ກີບ#</span>
+                            #{{$data['money_name']}}#</span>
                     </td>
                 </tr>
                 <tr>
                     <td style="padding-top: 35px;">
                         <span style="font-family: 'DejaVu Sans','Phetsarath OT';padding-left: 70px;">
-                            ທ້າວ ໄຊຍະເດດ ພຸດທະຣາດ</span>
+                            {{$data['name_hub']}}</span>
                     </td>
                     <td style="padding-top: 35px;">
                         <span style="font-family:'Times New Roman';padding-left: 40px;">
-                        02010023520000000000000207</span>
+                            {{$data['acno_mee']}}</span>
                     </td>
                 </tr>
                 <tr>
                     <td style="padding-top: 22px;" colspan="2">
                         <span style="font-family: 'DejaVu Sans','Phetsarath OT';padding-left: 100px;">
-                            ທະນາຄານ ນະໂຍບາຍ ສາຂາ ຜົ້ງສາລີ</span>
+                            {{$data['branch_receive']}}</span>
                     </td>
                 </tr>
                 <tr>
                     <td style="padding-top: 56px;" width="330px">
                         <span style="font-family: 'DejaVu Sans','Phetsarath OT';padding-left: 0px;">
-                            ສາທາລະນະລັດ ປະຊາທິປະໄຕ ປະຊາຊົນລາວ ສັນຕິພາບ ເອກະລາດ ປະຊາທິປະໄຕ ເອກະພາບ ວັດທະນາຖາວອນ ສາທາລະນະລັດ ປະຊາທິປະໄຕ ປະຊາຊົນລາວ </span>
+                            {{$data['note']}} </span>
                     </td>
                 </tr>
             </table>
