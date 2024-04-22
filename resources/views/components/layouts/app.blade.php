@@ -202,7 +202,6 @@
 
     <script src="{{asset('backend/vendors/count_up/jquery.waypoints.min.js')}}"></script>
 
-    <script src="{{asset('backend/vendors/chartlist/Chart.min.js')}}"></script>
 
     <script src="{{asset('backend/vendors/count_up/jquery.counterup.min.js')}}"></script>
 
@@ -236,20 +235,8 @@
     <script src="{{asset('backend/vendors/scroll/perfect-scrollbar.min.js')}}"></script>
     <script src="{{asset('backend/vendors/scroll/scrollable-custom.js')}}"></script>
 
-    <script src="{{asset('backend/vendors/vectormap-home/vectormap-2.0.2.min.js')}}"></script>
-    <script src="{{asset('backend/vendors/vectormap-home/vectormap-world-mill-en.js')}}"></script>
-
-    <script src="{{asset('backend/vendors/apex_chart/apex-chart2.js')}}"></script>
-    <script src="{{asset('backend/vendors/apex_chart/apex_dashboard.js')}}"></script>
-
-    <script src="{{asset('backend/vendors/chart_am/core.js')}}"></script>
-    <script src="{{asset('backend/vendors/chart_am/charts.js')}}"></script>
-    <script src="{{asset('backend/vendors/chart_am/animated.js')}}"></script>
-    <script src="{{asset('backend/vendors/chart_am/kelly.js')}}"></script>
-    <script src="{{asset('backend/vendors/chart_am/chart-custom.js')}}"></script>
 
     <script src="{{asset('backend/js/dashboard_init.js')}}"></script>
-    <script src="{{asset('backend/js/custom.js')}}"></script>
     <script src="{{asset('backend/js/money.format.js')}}"></script>
     <!-- Toastr js -->
     <script src="{{asset('backend/libs/toastr/toastr.min.js')}}"></script>

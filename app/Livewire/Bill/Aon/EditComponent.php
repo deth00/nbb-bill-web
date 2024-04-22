@@ -5,24 +5,31 @@ namespace App\Livewire\Bill\Aon;
 use Livewire\Component;
 use App\Models\BhaiaonInside;
 
-class CreateComponent extends Component
+class EditComponent extends Component
 {
+
     public $no, $type = 'OSD', $branch_send, $name_aon, $acno_nee, $money, $money_name,
     $name_hub, $acno_mee, $branch_receive, $note;
     public $hiddenId;
-    public $hideText;
+
+    public function mount($id){
+        $this->hiddenId = $id;
+        $bm = BhaiaonInside::find($id);
+        $this->type = $bm->type;
+        $this->branch_send = $bm->branch_send;
+        $this->name_aon = $bm->name_aon;
+        $this->acno_nee = $bm->acno_nee;
+        $this->money = number_format($bm->money);
+        $this->money_name = $bm->money_name;
+        $this->name_hub = $bm->name_hub;
+        $this->acno_mee = $bm->acno_mee;
+        $this->branch_receive = $bm->branch_receive;
+        $this->note = $bm->note;
+    }
 
     public function render()
     {
-        return view('livewire.bill.aon.create-component');
-    }
-
-    public function changeType(){
-        if($this->type == 'OSD'){
-            $this->hideText = null;
-        }else{
-            $this->hideText = 'none';
-        }
+        return view('livewire.bill.aon.edit-component');
     }
 
     public function generate(){
@@ -42,7 +49,7 @@ class CreateComponent extends Component
     public function convert($moneys){
         $numbers = $moneys;
         $digit=array('','ໜຶ່ງ','ສອງ','ສາມ','ສີ່','ຫ້າ','ຫົກ','ເຈັດ','ແປດ','ເກົ້າ','ສິບ');
-        $num=array('','ສິບ','ຮ້ອຍ','ພັນ','ສິບ','ແສນ','ລ້ານ','ສິບ','ຮ້ອຍ','ຕື້','ສິບ','ຮ້ອຍ','ພັນ','ສິບ','ຮ້ອຍ');
+        $num=array('','ສິບ','ຮ້ອຍ','ພັນ','ສິບພັນ','ແສນ','ລ້ານ','ສິບ','ຮ້ອຍ','ຕື້','ສິບ','ຮ້ອຍຕື້','ພັນ','ສິບ','ຮ້ອຍ');
         $number = explode(".",$numbers);
         $count = count($number);
         $convert='';
@@ -56,16 +63,17 @@ class CreateComponent extends Component
             $c_digit=substr($number[0],$n,1);
             $c_digit2=substr($number[0],$c-1,1);
             $c_digit3=substr($number[0],$c+1,1);
+            $c_digit4=substr($number[0],$c+2,1);
+            $c_digit5=substr($number[0],$c+3,1);
+            $c_digit6=substr($number[0],$c+4,1);
 
-            $c_digit20=substr($number[0],$n,2);
             $minus_len = $len - $n;
-            // dd(substr($number[0],$n,2));
+            // dd($len-$n);
             if($c_num[0]==0 && $c_digit==1 && $c_digit2!=0)$digit[$c_digit]='ເອັດ';
             if($c_num[0]==0 && $c_digit==1 && $c_digit2==0)$digit[$c_digit]='ໜຶ່ງ';
             if($c_num[0]==0 && $c_digit==2)$digit[$c_digit]='ສອງ';
             if($c_num[0]==1 && $c_digit==1)$digit[$c_digit]='';
             if($c_num[0]==1 && $c_digit==2)$digit[$c_digit]='ຊາວ';
-
 
             if($c_num[0]==2 && $c_digit==1)$digit[$c_digit]='ໜຶ່ງ';
 
@@ -96,11 +104,9 @@ class CreateComponent extends Component
             if($c_num[0]==13 && $c_digit==2)$digit[$c_digit]='ຊາວ';
 
             $convert.=$digit[$c_digit];
-
-            // if($len == 8 && $digit[$c_digit] != 'ຊາວ')  $convert .= 'ລ້ານ'; ;
  
             if($digit[$c_digit] != 'ຊາວ' && $c_digit!=0){
-                    $convert.=$num[$c_num[0]];
+                $convert.=$num[$c_num[0]];
             }
         }
 
@@ -150,9 +156,8 @@ class CreateComponent extends Component
     public function store(){
         $money = str_replace(',', '', $this->money);
         if (intval($money)) {
-                $bm = new BhaiaonInside();
+                $bm = BhaiaonInside::find($this->hiddenId);
                 $bm->valuedt = date('Y-m-d');
-                $bm->no = 255124;
                 $bm->type = $this->type;
                 $bm->branch_send = $this->branch_send;
                 $bm->name_aon = $this->name_aon;
@@ -165,19 +170,20 @@ class CreateComponent extends Component
                 $bm->note = $this->note;
                 $bm->user_id = 1;
                 $bm->department_id = 1;
+                $bm->del = 1;
                 $bm->save();
         
-                session()->flash('success', 'ເພີ່ມຂໍ້ມູນສຳເລັດ');
+                session()->flash('success', 'ແກ້ໄຂຂໍ້ມູນສຳເລັດ');
+                
                 if($this->type == 'OSD'){
                     return redirect(route('print-aon',$bm->id));
                 }else{
                     return redirect(route('print-aon-old',$bm->id));
                 }
-            
+                
             $this->resetField();
         }else{
             $this->dispatch('alert',type: 'error', message:'ກະລຸນາປ້ອນຈຳນວນເງິນເປັນຕົວເລກ!');
         }
     }
-
 }

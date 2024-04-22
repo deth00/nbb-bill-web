@@ -74,9 +74,9 @@
                                     <button type="button" class="btn btn-primary" wire:click="searchData">
                                         <i class="fa fa-search"></i>
                                     </button>
-                                    <button type="button" class="btn btn-success" wire:click="exportExcel">
+                                    <!-- <button type="button" class="btn btn-success" wire:click="exportExcel">
                                         <i class="fa fa-file-excel"></i>
-                                    </button>
+                                    </button> -->
                                 </div>
                             </div>
                             <!-- </div> -->
@@ -131,12 +131,25 @@
                                                 <button class="btn btn-secondary dropdown-toggle" type="button"
                                                     id="dropdownMenuButton" data-bs-toggle="dropdown"
                                                     aria-haspopup="true" aria-expanded="false">
-                                                    ຕົວເລືອກ
+                                                    <span>ຕົວເລືອກ</span>
                                                 </button>
                                                 <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                                    <a class="dropdown-item text-warning" href="#"><i class="fas fa-edit"></i> ແກ້ໄຂ</a>
-                                                    <a class="dropdown-item text-danger" href="#"><i class="fas fa-trash"></i> ຍົກເລີກ</a>
-                                                    <a class="dropdown-item text-info" href="{{route('print-aon',$item->id)}}"><i class="fas fa-eye"></i> ເບິ່ງ</a>
+                                                    <a class="dropdown-item text-warning"
+                                                        href="{{route('edit-aon',$item->id)}}"><i
+                                                            class="fas fa-edit"></i> ແກ້ໄຂ</a>
+                                                    <a class="dropdown-item text-danger" href="javascript:void(0)"
+                                                        wire:click="delete({{$item->id}})"><i class=" fas fa-trash"></i>
+                                                        ຍົກເລີກ</a>
+                                                        @if ($item->type == 'OSD')
+                                                        <a class="dropdown-item text-info"
+                                                        href="{{route('print-aon',$item->id)}}"><i
+                                                            class="fas fa-eye"></i> ເບິ່ງ</a>
+                                                        @else
+                                                        <a class="dropdown-item text-info"
+                                                        href="{{route('print-aon-old',$item->id)}}"><i
+                                                            class="fas fa-eye"></i> ເບິ່ງ</a>
+                                                        @endif
+                                                    
                                                 </div>
                                             </td>
                                         </tr>
@@ -159,4 +172,40 @@
             </div>
         </div>
     </div>
+
+    <div wire:ignore.seft class="modal fade" id="modal-delete" tabindex="-1" role="dialog"
+        aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header bg-danger">
+                    <h5 class="modal-title" id="exampleModalLabel">ລົບຂໍ້ມູນ</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="form-group text-center">
+                        <h2><label>ທ່ານຕ້ອງການລົບຂໍ້ມູນນີ້ ຫຼື ບໍ່ ?</label></h2>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">ປິດ</button>
+                    <button wire:click="destroy" type="button" data-dismiss="modal"
+                        class="btn btn-danger">ຕົກລົງ</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
 </div>
+
+@push('scripts')
+<script>
+window.addEventListener('show-modal-delete', event => {
+    $('#modal-delete').modal('show');
+})
+window.addEventListener('hide-modal-delete', event => {
+    $('#modal-delete').modal('hide');
+})
+</script>
+@endpush

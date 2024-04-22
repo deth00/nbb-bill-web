@@ -49,7 +49,7 @@
             </a>
         </li>
         <li>
-            <a href="{{route('bill-aon')}}" aria-expanded="false" class="{{ (strpos(Route::currentRouteName(), 'bill-aons') == 'bill-aons') ? 'active' : '' }}">
+            <a href="{{route('bill-aon')}}" aria-expanded="false" class="{{ (Route::currentRouteName() == 'bill-aon') ? 'active' : '' }}">
                 <div class="nav_icon_small">
                     <img src="{{asset('backend/img/menu-icon/20.svg')}}" alt>
                 </div>
