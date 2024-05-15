@@ -13,7 +13,7 @@
                 </li>
 
                 <li class="has-submenu">
-                    <a href="#"> <i class="mdi mdi-file-document-outline"></i>ຂໍ້ມູນໃບມອບ</a>
+                    <a href="{{route('bill-morp')}}"> <i class="mdi mdi-file-document-outline"></i>ຂໍ້ມູນໃບມອບ</a>
                 </li>
 
                 <li class="has-submenu">
