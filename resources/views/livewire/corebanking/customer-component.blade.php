@@ -81,7 +81,14 @@
 
                             <thead>
                                 <tr class="text-center">
-                                    <th class="p-2"> # </th>
+                                    <th class="p-2"> <div class="btn-switch btn-switch-success">
+                                            <input type="checkbox" id="input-btn-switch-primary99">
+                                            <label for="input-btn-switch-primary99"
+                                                class="btn btn-rounded btn-success waves-effect waves-light">
+                                                <em class="fas fa-check"></em>
+                                                <strong> ທັງໝົດ </strong>
+                                            </label>
+                                        </div> </th>
                                     <th class="p-2"> ລຳດັບ </th>
                                     <th class="p-2"> ເລກບັນຊີ </th>
                                     <th class="p-2"> ຊື່ ແລະ ນາມສະກຸນ </th>

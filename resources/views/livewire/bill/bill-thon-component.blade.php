@@ -6,10 +6,10 @@
                 <div class="page-title-right">
                     <ol class="breadcrumb m-0">
                         <li class="breadcrumb-item"><a href="javascript: void(0);">ໜ້າຫຼັກ</a></li>
-                        <li class="breadcrumb-item active">ຂໍ້ມູນໃບມອບເງິນສົດ</li>
+                        <li class="breadcrumb-item active">ຂໍ້ມູນໃບຖອນເງິນສົດ</li>
                     </ol>
                 </div>
-                <h4 class="page-title">ຂໍ້ມູນໃບມອບເງິນສົດ</h4>
+                <h4 class="page-title">ຂໍ້ມູນໃບຖອນເງິນສົດ</h4>
             </div>
         </div>
     </div>
@@ -71,12 +71,10 @@
                                         <tr class="text-center">
                                             <th class="p-2"> ລຳດັບ </th>
                                             <th class="p-2"> ວັນທີ </th>
-                                            <th class="p-2"> ຊື່ຜູ້ມອບ </th>
-                                            <th class="p-2"> ທີ່ຢູ່ </th>
-                                            <th class="p-2"> ເບິໂທ </th>
+                                            <th class="p-2"> ລະຫັດ </th>
+                                            <th class="p-2"> ຊື່ຜູ້ຖອນ </th>
+                                            <th class="p-2"> ເລກບັນຊີ </th>
                                             <th class="p-2"> ຈຳນວນເງິນ </th>
-                                            <th class="p-2"> ຊື່ຜູ້ຮັບ </th>
-                                            <th class="p-2"> ລາຍລະອຽດປາຍທາງ </th>
                                             <th class="p-2"> ສະຖານະ </th>
                                             <th class="p-2"> ປຸ່ມກົດ </th>
                                         </tr>
@@ -88,17 +86,11 @@
                                             <td class="text-center p-2">{{$no++}}</td>
                                             <td class="text-center p-2">
                                                 {{date('d/m/Y', strtotime($item->valuedt))}}</td>
-                                            <td class="text-center p-2">{{$item->name_mop}}</td>
-                                            <td class="text-center p-2">{{$item->address}}</td>
-                                            <td class="text-center p-2">{{$item->tel}}</td>
+                                            <td class="text-center p-2">{{$item->no}}</td>
+                                            <td class="text-center p-2">{{$item->acname}}</td>
+                                            <td class="text-center p-2">{{$item->acno}}</td>
                                             <td class="text-right p-2" style="text-align: right;">
                                                 {{number_format($item->money)}}</td>
-                                            <td class="text-center p-2">
-                                                {{$item->name_hub}}
-                                            </td>
-                                            <td class="text-center p-2">
-                                                {{$item->address_hub}}
-                                            </td>
                                             <td class="text-center p-2">
                                                 @if ($item->del == 1)
                                                 <span class="badge bg-primary">ຍັງບໍ່ທັນພິມ</span>
@@ -125,7 +117,7 @@
                                         </tr>
                                         @empty
                                         <tr class="text-center">
-                                            <td class="p-2" colspan="10" style="color: #787878;">ບໍ່ມີຂໍ້ມູນໃບມອບເງິນສົດ</td>
+                                            <td class="p-2" colspan="8" style="color: #787878;">ບໍ່ມີຂໍ້ມູນໃບຖອນເງິນສົດ</td>
                                         </tr>
                                         @endforelse
                                     </tbody>

@@ -46,6 +46,5 @@ class BillMorpComponent extends Component
         $doc->save();
         $this->dispatch('hide-modal-delete');
         $this->dispatch('alert', type: 'success', message: 'ລົບຂໍ້ມູສຳເລັດ');
-
     }
 }

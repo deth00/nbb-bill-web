@@ -13,19 +13,23 @@
                 </li>
 
                 <li class="has-submenu">
-                    <a href="{{route('bill-morp')}}"> <i class="mdi mdi-file-document-outline"></i>ຂໍ້ມູນໃບມອບ</a>
+                    <a href="{{route('bill-morp')}}"> <i class="mdi mdi-file-document-outline"></i>ຂໍ້ມູນໃບມອບເງິນສົດ</a>
                 </li>
 
                 <li class="has-submenu">
-                    <a href="#"> <i class="mdi mdi-file-document-outline"></i>ຂໍ້ມູນໃບຖອນ</a>
+                    <a href="{{route('bill-thon')}}"> <i class="mdi mdi-file-document-outline"></i>ຂໍ້ມູນໃບຖອນເງິນສົດ</a>
                 </li>
 
                 <li class="has-submenu">
-                    <a href="{{route('bill-aon')}}"> <i class="mdi mdi-file-document-outline"></i>ຂໍ້ມູນໃບໂອນ</a>
+                    <a href="{{route('bill-aon')}}"> <i class="mdi mdi-file-document-outline"></i>ຂໍ້ມູນໃບໂອນບັນຊີເງິນ</a>
                 </li>
 
                 <li class="has-submenu">
-                    <a href="#"> <i class="mdi mdi-file-document-outline"></i>ຂໍ້ມູນໃບມອບສິດການໂອນ</a>
+                    <a href="{{route('bill-morp-sit-aon')}}"> <i class="mdi mdi-file-document-outline"></i>ຂໍ້ມູນໃບມອບສິດການໂອນ</a>
+                </li>
+
+                <li class="has-submenu">
+                    <a href="#"> <i class="mdi mdi-file-table-box-multiple-outline"></i>ລາຍງານ</a>
                 </li>
 
             </ul>

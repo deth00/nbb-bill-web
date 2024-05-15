@@ -12,6 +12,8 @@ Route::get('/core-cus', App\Livewire\Corebanking\CustomerComponent::class)->name
 
 Route::get('/bill-mops', App\Livewire\Bill\BillMorpComponent::class)->name('bill-morp');
 
+Route::get('/bill-thons', App\Livewire\Bill\BillThonComponent::class)->name('bill-thon');
+
 Route::get('/bill-aons', App\Livewire\Bill\BillAonComponent::class)->name('bill-aon');
 Route::get('/create-aons', App\Livewire\Bill\Aon\CreateComponent::class)->name('create-aon');
 Route::get('/edit-aons/{id}', App\Livewire\Bill\Aon\EditComponent::class)->name('edit-aon');

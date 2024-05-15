@@ -9,7 +9,7 @@ class CustomerComponent extends Component
 {
     public $show ="none";
     public $branch_id, $start, $end;
-    public $data = [];
+    public $data = [], $data_cus_info = [];
 
     public function render()
     {
@@ -36,7 +36,8 @@ class CustomerComponent extends Component
             "fromDate" => date('m-d-Y',strtotime($this->start)),
             "toDate" => date('m-d-Y',strtotime($this->end))
         ])->json();
-            // dd($this->data);
+        
+
         if($this->data['success'] == 0){
             $this->data = [];
         }

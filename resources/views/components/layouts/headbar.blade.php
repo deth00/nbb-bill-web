@@ -18,8 +18,8 @@
                 </li>
 
                 <li class="dropdown notification-list">
-                    <a class="nav-link dropdown-toggle nav-user mr-0 waves-effect waves-light" data-toggle="dropdown"
-                        href="#" role="button" aria-haspopup="false" aria-expanded="false">
+                    <a class="nav-link dropdown-toggle nav-user mr-0 waves-effect waves-light text-white" data-toggle="dropdown"
+                        href="#" role="button" aria-haspopup="false" aria-expanded="false"> Admin
                         <img src="{{asset('backend/assets/images/users/avatar-7.jpg')}}" alt="user-image" class="rounded-circle">
                     </a>
                     <div class="dropdown-menu dropdown-menu-right profile-dropdown ">
