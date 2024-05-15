@@ -8,6 +8,18 @@
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+        <style>
+            @font-face {
+                    font-family: 'Phetsarath OT';
+                    font-weight: normal;
+                    font-style: normal;
+                    font-variant: normal;
+                    src: url('fonts/PhetsarathOT.ttf') format('truetype');
+            }
+            * {
+                font-family: 'Phetsarath OT';
+            }
+        </style>
 </head>
 
 <body>
@@ -15,7 +27,7 @@
         <div class="col-12">
             <table width="100%" class="border-buttom">
                 <tr>
-                    <td colspan="2"><span style="font-family: 'DejaVu Sans','Phetsarath OT';padding-left: 420px;">ເລກທີ:
+                    <td colspan="2"><span style="font-family:'Phetsarath OT';padding-left: 420px;">ເລກທີ:
                             {{$data['no']}}</span></td>
                 </tr>
                 <tr>
@@ -26,13 +38,13 @@
                 </tr>
                 <tr>
                     <td style="padding-top: 23px;" colspan="2">
-                        <span style="font-family: 'DejaVu Sans','Phetsarath OT';padding-left: 100px;">
+                        <span style="font-family:'Phetsarath OT';padding-left: 100px;">
                         {{$data['branch_send']}}</span>
                     </td>
                 </tr>
                 <tr>
                     <td style="padding-top: 35px;">
-                        <span style="font-family: 'DejaVu Sans','Phetsarath OT';padding-left: 70px;">
+                        <span style="font-family:'Phetsarath OT';padding-left: 70px;">
                             {{$data['name_aon']}}</span>
                     </td>
                     <td style="padding-top: 35px;">
@@ -48,13 +60,13 @@
                 </tr>
                 <tr>
                     <td colspan="2">
-                        <span style="font-family: 'DejaVu Sans','Phetsarath OT';padding-left: 100px;">
+                        <span style="font-family: 'Phetsarath OT';padding-left: 100px;">
                             #{{$data['money_name']}}#</span>
                     </td>
                 </tr>
                 <tr>
                     <td style="padding-top: 35px;">
-                        <span style="font-family: 'DejaVu Sans','Phetsarath OT';padding-left: 70px;">
+                        <span style="font-family: 'Phetsarath OT';padding-left: 70px;">
                             {{$data['name_hub']}}</span>
                     </td>
                     <td style="padding-top: 35px;">
@@ -64,13 +76,13 @@
                 </tr>
                 <tr>
                     <td style="padding-top: 22px;" colspan="2">
-                        <span style="font-family: 'DejaVu Sans','Phetsarath OT';padding-left: 100px;">
+                        <span style="font-family: 'Phetsarath OT';padding-left: 100px;">
                             {{$data['branch_receive']}}</span>
                     </td>
                 </tr>
                 <tr>
                     <td style="padding-top: 56px;" width="330px">
-                        <span style="font-family: 'DejaVu Sans','Phetsarath OT';padding-left: 0px;">
+                        <span style="font-family: 'Phetsarath OT';padding-left: 0px;">
                             {{$data['note']}} </span>
                     </td>
                 </tr>

@@ -1,12 +1,11 @@
-<div class="footer_part">
+<!-- Footer Start -->
+<footer class="footer">
     <div class="container-fluid">
         <div class="row">
-            <div class="col-lg-12">
-                <div class="footer_iner text-center">
-                    <p>2020 © Influence - Designed by <a href="#"> <i class="ti-heart"></i> </a><a href="#">
-                            Dashboard</a></p>
-                </div>
+            <div class="col-md-12 text-left">
+                2023 - 2024 &copy; ພັດທະນາໂດຍ: <a href="#">ພະແນກ ເຕັກໂນໂລຊີ-ຂໍ້ມູນຂ່າວສານ ທະນາຄານນະໂຍບາຍ</a>
             </div>
         </div>
     </div>
-</div>
+</footer>
+<!-- end Footer -->

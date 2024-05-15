@@ -1,33 +1,36 @@
 <div>
-    <div class="row">
+<div class="row">
         <div class="col-12">
-            <div class="row">
-                <div class="col-9">
-                    <div class="page_title_box d-flex align-items-right">
-                        <div class="page_title_left d-flex align-items-center">
-                            <h3 class="f_s_25 f_w_700 dark_text mr_30">ປິ່ນຂໍ້ມູນໃບໂອນ</h3>
-                            <ol class="breadcrumb page_bradcam mb-0">
-                                <li class="breadcrumb-item"><a href="javascript:void(0);">ໜ້າຫຼັກ</a></li>
-                                <li class="breadcrumb-item active">ຂໍ້ມູນໃບໂອນ</li>
-                            </ol>
-                        </div>
-                    </div>
+            <div class="page-title-box">
+                <div class="page-title-right">
+                    <ol class="breadcrumb m-0">
+                        <li class="breadcrumb-item"><a href="javascript: void(0);">ໜ້າຫຼັກ</a></li>
+                        <li class="breadcrumb-item active">ຂໍ້ມູນໃບໂອນ</li>
+                    </ol>
                 </div>
-                <div class="col-3">
-                    <a href="{{route('bill-aon')}}" class="btn btn-danger float-end">ກັບຄືນ</a>
-                    <a href="{{route('pdf-aon',$hidId)}}" target="_bank" class="btn btn-primary float-end mx-2">ພິມບິນ</a>
-                </div>
+                <h4 class="page-title">ຂໍ້ມູນໃບໂອນ</h4>
             </div>
         </div>
     </div>
+    
     <div class="row ">
         <div class="col-12 QA_section">
             <div class="card QA_table ">
                 <div class="card-header">
-                    ວັນທີ :
-                    <strong>{{date('d/m/Y H:i:s', strtotime($data['created_at']))}}</strong>
-                    <span class="float-end"> <strong>ສະຖານະ:</strong> <span class="text-danger">@if($data['del'] == 1)
-                            ລໍຖ້າປິ່ນ @elseif($data['del'] == 2) ປິ່ນສຳເລັດ @else ຍົກເລີກ @endif</span></span>
+                    <div class="row">
+                        <div class="col-3">
+                            <a href="{{route('bill-aon')}}" class="btn btn-danger float-end">ກັບຄືນ</a>
+                            <a href="{{route('pdf-aon',$hidId)}}" target="_bank"
+                                class="btn btn-primary float-end mx-2">ພິມບິນ</a>
+                        </div>
+                        <div class="col-9 text-right">
+                            ວັນທີ :
+                            <strong>{{date('d/m/Y H:i:s', strtotime($data['created_at']))}}</strong>
+                            <span class="float-end"> <strong>ສະຖານະ:</strong> <span class="text-danger">@if($data['del']
+                                    == 1)
+                                    ລໍຖ້າປິ່ນ @elseif($data['del'] == 2) ປິ່ນສຳເລັດ @else ຍົກເລີກ @endif</span></span>
+                        </div>
+                    </div>
                 </div>
                 <div class="card-body">
                     <div class="row mb-4">
@@ -40,10 +43,10 @@
                                             <div class="col-4">
                                                 <img src="{{asset('backend/img/logo-nbb.png')}}" alt width="100px">
                                             </div>
-                                            <div class="col-4 text-center">
-                                                <h3><b>ທະນາຄານ ນະໂຍບາຍ</b></h3>
-                                                <h3 class="timenewroman"><b>NAYOBY BANK</b></h3>
-                                                <h4>ວັນທີ {{date('d/m/Y', strtotime($data['valuedt']))}}</h4>
+                                            <div class="col-4 text-center ">
+                                                <h3><b class="colorblack">ທະນາຄານ ນະໂຍບາຍ</b></h3>
+                                                <h3 class="timenewroman colorblack"><b>NAYOBY BANK</b></h3>
+                                                <h4 class="colorblack">ວັນທີ {{date('d/m/Y', strtotime($data['valuedt']))}}</h4>
                                             </div>
                                             <div class="col-4">
                                             </div>
