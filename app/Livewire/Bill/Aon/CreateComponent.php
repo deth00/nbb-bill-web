@@ -4,6 +4,7 @@ namespace App\Livewire\Bill\Aon;
 
 use Livewire\Component;
 use App\Models\BhaiaonInside;
+use App\Http\Controllers\NumberToStringController;
 
 class CreateComponent extends Component
 {
@@ -29,7 +30,9 @@ class CreateComponent extends Component
         if(!empty($this->money)){
             $moneys = str_replace(',', '', $this->money);
             if (intval($moneys)) {
-                $this->money_name = $this->convert($moneys);
+                $translate = new NumberToStringController();
+                $result = $translate->convert($this->money);
+                $this->money_name = $result;
             }else{
                 $this->dispatch('alert',type: 'error', message:'ກະລຸນາປ້ອນຈຳນວນເງິນເປັນຕົວເລກ!');
             }

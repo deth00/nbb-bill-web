@@ -175,6 +175,5 @@ class CreateComponent extends Component
         }else{
             $this->dispatch('alert', type: 'error', message: 'ກະລຸນາເພີ່ມຈຳນວນເງິນກ່ອນ');
         }
-        
     }
 }
