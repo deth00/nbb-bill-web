@@ -19,7 +19,7 @@
             <div class="card-box">
                 <div class="row">
                     <div class="col-lg-12">
-                        <a href="{{route('create-aon')}}" class="btn btn-info text-white mt-3">
+                        <a href="{{route('create-mop')}}" class="btn btn-info text-white mt-3">
                             ເພີ່ມຂໍ້ມູນ
                         </a>
                     </div>
