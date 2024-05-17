@@ -7,7 +7,7 @@ use App\Models\BhaiMorp;
 use Illuminate\Support\Facades\Http;
 use App\Http\Controllers\NumberToStringController;
 
-class CreateComponent extends Component
+class EditComponent extends Component
 {
     public $hiddenId;
     public $hideText = 'none', $check;
@@ -18,11 +18,56 @@ class CreateComponent extends Component
     public $san2, $has2, $sow2, $sip2, $har2, $sng2, $nug2, $hal2;
     public $name_hub, $address_hub, $tel_hub, $card_no, $card_type, $branch_name, $unit, $acno_hub, $bank_name, $bank_no, $money_fees, $lek_ac;
 
-    public function render()
-    {
-        return view('livewire.bill.mop.create-component');
+    public function mount($id){
+        $bm = BhaiMorp::find($id);
+        $this->hiddenId = $id;
+        $this->san = number_format($bm->san);
+        $this->has = number_format($bm->has);
+        $this->sow = number_format($bm->sow);
+        $this->sip = number_format($bm->sip);
+        $this->har = number_format($bm->har);
+        $this->sng = number_format($bm->sng);
+        $this->nug = number_format($bm->nug);
+        $this->hal = number_format($bm->hal);
+
+        $this->san2 = number_format($bm->san);
+        $this->has2 = number_format($bm->has);
+        $this->sow2 = number_format($bm->sow);
+        $this->sip2 = number_format($bm->sip);
+        $this->har2 = number_format($bm->har);
+        $this->sng2 = number_format($bm->sng);
+        $this->nug2 = number_format($bm->nug);
+        $this->hal2 = number_format($bm->hal);
+
+        $this->name_mop = $bm->name_mop;
+        $this->address = $bm->address;
+        $this->tel = $bm->tel;
+        $this->detail = $bm->detail;
+        $this->acno_fak = $bm->acno_fak;
+        $this->money = $bm->money;
+        $this->money_name = $bm->money_name;
+        $this->crc = $bm->acno_kou;
+        $this->type = $bm->type;
+        $this->name_hub = $bm->name_hub;
+        $this->address_hub = $bm->address_hub;
+        $this->tel_hub = $bm->tel_hub;
+        $this->card_no = $bm->card_no;
+        $this->card_type = $bm->card_type;
+        $this->branch_name = $bm->branch_name;
+        $this->unit = $bm->unit;
+        $this->acno_hub = $bm->acno_hub;
+        $this->bank_name = $bm->bank_name;
+        $this->bank_no = $bm->bank_no;
+        $this->money_aon = $bm->money_aon;
+        $this->lek_ac = $bm->lek_ac;
     }
 
+    public function render()
+    {
+        return view('livewire.bill.mop.edit-component');
+    }
+
+    
     public function searchCusData(){
 
         $this->data_search1 = Http::withToken('eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyZXN1bHQiOnsiYXV0aF9pZCI6NSwiYXV0aF9uYW1lIjoibmJiIiwiYXV0aF9wYXNzIjoiJDJiJDEwJHptUWltdTBCOHI2UmRBWHI5OEc1ZWVwVWJ0a0djVk5SZFdqbGRLMS5vWnUzQTRGSEJFaVRxIiwiYXV0aF9zdGFydCI6IjIwMjMtMDktMTRUMDY6MDk6MDQuMDAwWiJ9LCJpYXQiOjE3MTU1NzI5NzQsImV4cCI6MTcyMzM0ODk3NH0.Qeu30YegewTKnyjyurywbjyCzi8e9SmTtxjddiVhHJw')
@@ -174,9 +219,8 @@ class CreateComponent extends Component
     }
 
     public function store(){
-            $bm = new BhaiMorp();
-            $bm->no ='111';
 
+            $bm = BhaiMorp::find($this->hiddenId);
             if($this->san2)  $bm->san = $this->san2;
             if($this->has2)  $bm->has = $this->has2;
             if($this->sow2)  $bm->sow = $this->sow2;
@@ -186,6 +230,7 @@ class CreateComponent extends Component
             if($this->nug2)  $bm->nug = $this->nug2;
             if($this->hal2)  $bm->hal = $this->hal2;
 
+            
             $bm->valuedt = date('Y-m-d H:i:s');
             $bm->name_mop = $this->name_mop;
             $bm->address = $this->address;
@@ -215,9 +260,10 @@ class CreateComponent extends Component
             $bm->lek_ac = $this->lek_ac;
             $bm->user_id = 1;
             $bm->department_id = 1;
+            $bm->del = 1;
             $bm->save();
     
-            session()->flash('success', 'ເພີ່ມຂໍ້ມູນສຳເລັດ');
+            session()->flash('success', 'ແກ້ໄຂຂໍ້ມູນສຳເລັດ');
             return redirect(route('bill-mop'));
     }
 }

@@ -8,7 +8,7 @@ use App\Models\BhaiaonInside;
 class BillAonComponent extends Component
 {
     public $bhaiaon, $count;
-    public $search, $dataQ = 15, $dateS, $dateE;
+    public $search, $dataQ = 15, $date, $dateS, $dateE;
     public $hiddenId;
 
     public function render()
@@ -29,8 +29,8 @@ class BillAonComponent extends Component
                 $this->bhaiaon = BhaiaonInside::whereAny(['no','branch_send','name_aon'],'LIKE','%'.$this->search.'%')->where('valuedt',$this->date)->orderBy('id','desc')->limit($this->dataQ)->get();
                 $this->count = count(BhaiaonInside::whereAny(['no','branch_send','name_aon'],'LIKE','%'.$this->search.'%')->where('valuedt',$this->date)->orderBy('id','desc')->limit($this->dataQ)->get());
             }else{
-                $this->bhaiaon = BhaiaonInside::where('valuedt','like','%'.$this->date.'%')->orderBy('id','desc')->limit($this->dataQ)->get();
-                $this->count = count(BhaiaonInside::where('valuedt','like','%'.$this->date.'%')->orderBy('id','desc')->limit($this->dataQ)->get());
+                $this->bhaiaon = BhaiaonInside::where('valuedt',$this->date)->orderBy('id','desc')->limit($this->dataQ)->get();
+                $this->count = count(BhaiaonInside::where('valuedt',$this->date)->orderBy('id','desc')->limit($this->dataQ)->get());
             }
         }else{
             $this->bhaiaon = BhaiaonInside::whereAny(['no','branch_send','name_aon'],'LIKE','%'.$this->search.'%')->orderBy('id','desc')->limit($this->dataQ)->get();
