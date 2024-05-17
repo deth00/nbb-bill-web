@@ -26,36 +26,38 @@
     <div class="row mb-4">
         <div class="col-12">
             <table width="100%" class="border-buttom">
+                <!-- <tr>
+                    <td colspan="2">
+                        <span style="font-family:'Phetsarath OT';padding-left: 420px;padding-top: 0px;">ເລກທີ:
+                            {{$data['no']}}</span>
+                        </td>
+                </tr> -->
                 <tr>
-                    <td colspan="2"><span style="font-family:'Phetsarath OT';padding-left: 420px;">ເລກທີ:
-                            {{$data['no']}}</span></td>
-                </tr>
-                <tr>
-                    <td style="padding-top: 20px;" colspan="2">
+                    <td style="padding-top: 15px;" colspan="2">
                         <span style="font-family: 'Times New Roman';padding-left: 292px;">{{date('d',strtotime($data['valuedt']))}}
                             &nbsp;&nbsp; {{date('m',strtotime($data['valuedt']))}} &nbsp;&nbsp;&nbsp; {{date('Y',strtotime($data['valuedt']))}}</span>
                     </td>
                 </tr>
                 <tr>
-                    <td style="padding-top: 23px;" colspan="2">
+                    <td style="padding-top: 18px;" colspan="2">
                         <span style="font-family:'Phetsarath OT';padding-left: 100px;">
                         {{$data['branch_send']}}</span>
                     </td>
                 </tr>
                 <tr>
-                    <td style="padding-top: 35px;">
+                    <td style="padding-top: 25px;">
                         <span style="font-family:'Phetsarath OT';padding-left: 70px;">
                             {{$data['name_aon']}}</span>
                     </td>
-                    <td style="padding-top: 35px;">
+                    <td style="padding-top: 25px;">
                         <span style="font-family: 'Times New Roman';padding-left: 40px;">
                             {{$data['acno_nee']}}</span>
                     </td>
                 </tr>
                 <tr>
-                    <td style="padding-top: 15px;" colspan="2">
+                    <td style="padding-top: 0px;" colspan="2">
                         <span style="font-family:'Times New Roman';padding-left: 100px;">
-                            #{{number_format($data['money'],2,',','.')}}#</span>
+                            #{{number_format($data['money'],2,'.',',')}}#</span>
                     </td>
                 </tr>
                 <tr>
@@ -65,23 +67,23 @@
                     </td>
                 </tr>
                 <tr>
-                    <td style="padding-top: 35px;">
+                    <td style="padding-top: 20px;">
                         <span style="font-family: 'Phetsarath OT';padding-left: 70px;">
                             {{$data['name_hub']}}</span>
                     </td>
-                    <td style="padding-top: 35px;">
+                    <td style="padding-top: 20px;">
                         <span style="font-family:'Times New Roman';padding-left: 40px;">
                             {{$data['acno_mee']}}</span>
                     </td>
                 </tr>
                 <tr>
-                    <td style="padding-top: 22px;" colspan="2">
+                    <td style="padding-top: 15px;" colspan="2">
                         <span style="font-family: 'Phetsarath OT';padding-left: 100px;">
                             {{$data['branch_receive']}}</span>
                     </td>
                 </tr>
                 <tr>
-                    <td style="padding-top: 56px;" width="330px">
+                    <td style="padding-top: 50px;" width="330px">
                         <span style="font-family: 'Phetsarath OT';padding-left: 0px;">
                             {{$data['note']}} </span>
                     </td>
