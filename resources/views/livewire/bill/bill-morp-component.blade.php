@@ -35,7 +35,7 @@
                             <tr>
                                 <td style="vertical-align: center; text-align: right;">ສະແດງ &emsp;</td>
                                 <td>
-                                    <select wire:model="dataQ" wire:click="dataQS" name="Q" id="Q" class="form-control">
+                                    <select wire:model="dataQ" wire:click="dataQ" name="Q" id="Q" class="form-control">
                                         <option value="15">15</option>
                                         <option value="30">30</option>
                                         <option value="50">50</option>
@@ -147,7 +147,7 @@
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header bg-danger">
-                    <h5 class="modal-title" id="exampleModalLabel">ລົບຂໍ້ມູນ</h5>
+                    <h5 class="modal-title text-white" id="exampleModalLabel">ລົບຂໍ້ມູນ</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>

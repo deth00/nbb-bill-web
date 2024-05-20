@@ -195,10 +195,6 @@ class CreateComponent extends Component
             $bm->money = $this->money;
             $bm->money_name = $this->money_name;
             $bm->acno_kou = $this->crc;
-
-            if($this->check == true){
-                $bm->type = 'AON';
-            }
             //-----------------------------//
     
             $bm->name_hub = $this->name_hub;
@@ -218,6 +214,6 @@ class CreateComponent extends Component
             $bm->save();
     
             session()->flash('success', 'ເພີ່ມຂໍ້ມູນສຳເລັດ');
-            return redirect(route('bill-mop'));
+            return redirect(route('bill-morp'));
     }
 }

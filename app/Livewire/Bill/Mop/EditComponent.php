@@ -30,14 +30,14 @@ class EditComponent extends Component
         $this->nug = number_format($bm->nug);
         $this->hal = number_format($bm->hal);
 
-        $this->san2 = number_format($bm->san);
-        $this->has2 = number_format($bm->has);
-        $this->sow2 = number_format($bm->sow);
-        $this->sip2 = number_format($bm->sip);
-        $this->har2 = number_format($bm->har);
-        $this->sng2 = number_format($bm->sng);
-        $this->nug2 = number_format($bm->nug);
-        $this->hal2 = number_format($bm->hal);
+        $this->san2 = $bm->san;
+        $this->has2 = $bm->has;
+        $this->sow2 = $bm->sow;
+        $this->sip2 = $bm->sip;
+        $this->har2 = $bm->har;
+        $this->sng2 = $bm->sng;
+        $this->nug2 = $bm->nug;
+        $this->hal2 = $bm->hal;
 
         $this->name_mop = $bm->name_mop;
         $this->address = $bm->address;
@@ -264,6 +264,6 @@ class EditComponent extends Component
             $bm->save();
     
             session()->flash('success', 'ແກ້ໄຂຂໍ້ມູນສຳເລັດ');
-            return redirect(route('bill-mop'));
+            return redirect(route('bill-morp'));
     }
 }

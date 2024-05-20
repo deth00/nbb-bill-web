@@ -196,7 +196,7 @@
                 </div>
                 <div class="card-footer">
                     <button class="btn btn-primary" wire:click="store">ບັນທຶກ</button>
-                    <a href="{{route('bill-aon')}}" class="btn btn-danger">ກັບຄືນ</a>
+                    <a href="{{route('bill-morp')}}" class="btn btn-danger">ກັບຄືນ</a>
                 </div>
             </div>
         </div>
