@@ -22,5 +22,6 @@ Route::get('/edit-aons/{id}', App\Livewire\Bill\Aon\EditComponent::class)->name(
 Route::get('/print-bill/{id}', App\Livewire\Bill\Aon\PrintComponent::class)->name('print-aon');
 Route::get('/print-bill-old/{id}', App\Livewire\Bill\Aon\PrintOldComponent::class)->name('print-aon-old');
 Route::get('/generate-pdf/{id}', [App\Http\Controllers\PrintAonController::class, 'generatePDF'])->name('pdf-aon');
+Route::get('/generate-pdf-old-news/{id}', [App\Http\Controllers\PrintAonController::class, 'generatePDFOldNews'])->name('pdf-aon-news');
 
 Route::get('/bill-morp-sit-aons', App\Livewire\Bill\BillMorpSitComponent::class)->name('bill-morp-sit-aon');

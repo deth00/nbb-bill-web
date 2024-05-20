@@ -27,11 +27,11 @@
         <div class="col-12">
             <table width="100%" class="border-buttom">
                 <tr>
-                    <td colspan="2" style="padding-top: 25px;"><span style="font-family: 'Phetsarath OT';padding-left: 100px;">
+                    <td colspan="2" style="padding-top: 10px;"><span style="font-family: 'Phetsarath OT';padding-left: 100px;">
                             {{$data['branch_send']}}</span></td>
                 </tr>
                 <tr>
-                    <td colspan="2" style="padding-top: 10px;"><span style="font-family: 'Times New Roman';padding-left: 202px;">{{date('d',strtotime($data['valuedt']))}}</span>
+                    <td colspan="2" style="padding-top: 25px;"><span style="font-family: 'Times New Roman';padding-left: 202px;">{{date('d',strtotime($data['valuedt']))}}</span>
                              <span style="font-family: 'Times New Roman';padding-left: 65px;">{{date('m',strtotime($data['valuedt']))}}  <span style="font-family: 'Times New Roman';padding-left: 35px;">{{date('Y',strtotime($data['valuedt']))}}</span></td>
                 </tr>
                 <tr>

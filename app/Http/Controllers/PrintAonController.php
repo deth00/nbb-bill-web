@@ -24,4 +24,13 @@ class PrintAonController extends Controller
         }
         
     }
+
+    public function generatePDFOldNews($id)
+    {
+        $data = BhaiaonInside::find($id); 
+        $data->del = 2;
+        $data->save();
+        $pdfs = mb_convert_encoding(\View::make('livewire.bill.aon.pdf-old-news', ['data'=>$data]), 'HTML-ENTITIES', 'UTF-8');
+        return PDF::loadHtml($pdfs)->setPaper('A4', 'portrait')->stream('ໃບໂອນບັນຊີເງິນໃໝ່.pdf',array('Attachment'=>0));
+    }
 }

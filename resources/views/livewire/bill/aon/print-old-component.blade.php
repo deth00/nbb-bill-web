@@ -23,7 +23,8 @@
                         <a href="{{route('bill-aon')}}" class="btn btn-danger float-end">ກັບຄືນ</a>
                             <a href="{{route('pdf-aon',$hidId)}}" target="_bank"
                                 class="btn btn-primary float-end mx-2">ພິມບິນ</a>
-                            
+                                <a href="{{route('pdf-aon-news',$hidId)}}" target="_bank"
+                                class="btn btn-success float-end mx-2">ພິມບິນ <span class="text-danger">(News)</span></a>
                         </div>
                         <div class="col-3 text-right">
                         ວັນທີ :
@@ -133,7 +134,7 @@
                                             </td>
                                             <td class="td-border2 text-center" width="25%" colspan="5">
                                                 <p class="text-black bold" style="font-size:22px">
-                                                    #{{number_format($data['money'],2,'.',',')}}#</p>
+                                                    </p>
                                             </td>
                                         </tr>
                                         <tr>
