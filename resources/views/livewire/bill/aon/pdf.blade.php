@@ -26,15 +26,15 @@
     <div class="row mb-4">
         <div class="col-12">
             <table width="100%" class="border-buttom">
-                <!-- <tr>
+                 <tr>
                     <td colspan="2">
                         <span style="font-family:'Phetsarath OT';padding-left: 420px;padding-top: 0px;">ເລກທີ:
                             {{$data['no']}}</span>
                         </td>
-                </tr> -->
+                </tr> 
                 <tr>
-                    <td style="padding-top: 15px;" colspan="2">
-                        <span style="font-family: 'Times New Roman';padding-left: 292px;">{{date('d',strtotime($data['valuedt']))}}
+                    <td style="padding-top: 5px;" colspan="2">
+                        <span style="font-family: 'Times New Roman';padding-left: 292px;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                             &nbsp;&nbsp; {{date('m',strtotime($data['valuedt']))}} &nbsp;&nbsp;&nbsp; {{date('Y',strtotime($data['valuedt']))}}</span>
                     </td>
                 </tr>
@@ -46,7 +46,7 @@
                 </tr>
                 <tr>
                     <td style="padding-top: 25px;">
-                        <span style="font-family:'Phetsarath OT';padding-left: 70px;">
+                        <span style="font-family:'Phetsarath OT';padding-left: 30px;">
                             {{$data['name_aon']}}</span>
                     </td>
                     <td style="padding-top: 25px;">
@@ -68,7 +68,7 @@
                 </tr>
                 <tr>
                     <td style="padding-top: 20px;">
-                        <span style="font-family: 'Phetsarath OT';padding-left: 70px;">
+                        <span style="font-family: 'Phetsarath OT'; font-size: 14px; padding-left: 30px;">
                             {{$data['name_hub']}}</span>
                     </td>
                     <td style="padding-top: 20px;">
@@ -87,6 +87,7 @@
                         <span style="font-family: 'Phetsarath OT';padding-left: 0px;">
                             {{$data['note']}} </span>
                     </td>
+                    <td></td>
                 </tr>
             </table>
 

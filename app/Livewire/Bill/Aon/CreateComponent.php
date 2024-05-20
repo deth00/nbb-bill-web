@@ -9,9 +9,13 @@ use App\Http\Controllers\NumberToStringController;
 class CreateComponent extends Component
 {
     public $no, $type = 'OSD', $branch_send, $name_aon, $acno_nee, $money, $money_name,
-    $name_hub, $acno_mee, $branch_receive, $note;
+    $name_hub, $acno_mee, $branch_receive, $note, $start;
     public $hiddenId;
     public $hideText;
+
+    public function mount(){
+        $this->start = date('Y-m-d');
+    }
 
     public function render()
     {
@@ -54,13 +58,19 @@ class CreateComponent extends Component
             $this->branch_receive = '';
             $this->note = '';
             $this->hiddenId = '';
+            $this->start = '';
     }
 
     public function store(){
+        $this->validate([
+            'start'=>'required',
+        ],[
+            'start.required'=>'ກະລຸນາເລືອກ ວັນທີເລີ່ມຕົ້ນ ກ່ອນ!',
+        ]);
         $money = str_replace(',', '', $this->money);
         if (intval($money)) {
                 $bm = new BhaiaonInside();
-                $bm->valuedt = date('Y-m-d');
+                $bm->valuedt = $this->start;
                 $bm->no = 255124;
                 $bm->type = $this->type;
                 $bm->branch_send = $this->branch_send;

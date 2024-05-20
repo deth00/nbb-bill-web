@@ -22,9 +22,18 @@
                         <div class="col-6">
                             <b>ເພີ່ມຂໍ້ມູນໃບໂອນ</b>
                         </div>
-                        <div class="col-6 text-right">
-                            <span> ວັນທີ :
-                                <strong>{{now()}}</strong></span>
+                        <div class="col-3"></div>
+                        <div class="col-3 text-right">
+                            <!-- <span> ວັນທີ :
+                                <strong>{{now()}}</strong></span> -->
+                                <div class="input-group">
+                                    <span class="input-group-prepend">
+                                        <button type="button"
+                                            class="btn waves-effect waves-light btn-primary phetsarath-font">ວັນທີ</button>
+                                    </span>
+                                    <input type="date" name="start" id="start"
+                                        class="form-control @error('start') is-invalid @enderror" wire:model="start">
+                                </div>
                         </div>
                     </div>
                 </div>

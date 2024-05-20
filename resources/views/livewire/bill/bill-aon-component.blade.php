@@ -131,7 +131,7 @@
                                         </tr>
                                         @empty
                                         <tr class="text-center p-2">
-                                            <td colspan="10" style="color: #787878;">ບໍ່ມີຂໍ້ມູນຜູ້ໃຊ້ງານລະບົບ</td>
+                                            <td colspan="10" style="color: #787878;">ບໍ່ມີຂໍ້ມູນໃບໂອນ</td>
                                         </tr>
                                         @endforelse
                                     </tbody>

@@ -117,7 +117,7 @@
                                             </td>
                                             <td class="td-border2 text-center" width="25%" colspan="5">
                                                 <p class="text-black bold" style="font-size:22px">
-                                                    #{{number_format($data['money'],2,',','.')}}#</p>
+                                                    #{{number_format($data['money'],2,'.',',')}}#</p>
                                             </td>
                                         </tr>
                                         <tr>
@@ -133,7 +133,7 @@
                                             </td>
                                             <td class="td-border2 text-center" width="25%" colspan="5">
                                                 <p class="text-black bold" style="font-size:22px">
-                                                    #{{number_format($data['money'],2,',','.')}}#</p>
+                                                    #{{number_format($data['money'],2,'.',',')}}#</p>
                                             </td>
                                         </tr>
                                         <tr>

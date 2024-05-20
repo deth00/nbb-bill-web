@@ -27,7 +27,7 @@
         <div class="col-12">
             <table width="100%" class="border-buttom">
                 <tr>
-                    <td colspan="2" style="padding-top: 0px;"><span style="font-family: 'Phetsarath OT';padding-left: 100px;">
+                    <td colspan="2" style="padding-top: 25px;"><span style="font-family: 'Phetsarath OT';padding-left: 100px;">
                             {{$data['branch_send']}}</span></td>
                 </tr>
                 <tr>
@@ -40,14 +40,14 @@
                 </tr>
                 <tr>
                     <td colspan="2" style="padding-top: 10px;"><span style="font-family: 'Times New Roman';padding-left: 50px;">{{$data['acno_mee']}}</span>
-                             <span style="font-family: 'Times New Roman';padding-left: 190px;">#{{number_format($data['money'],2,',','.')}}# </td>
+                             <span style="font-family: 'Times New Roman';padding-left: 190px;"> </td>
                 </tr>
                 <tr>
                     <td style="padding-top: 5px;" width="350px" height="140px"><span style="font-family: 'Phetsarath OT'; padding-left: 10px;">{{$data['note']}}</span></td>
                     <td></td>
                 </tr>
                 <tr>
-                    <td style="padding-top: 65px;" width="350px"><span style="font-family: 'Phetsarath OT'; padding-left: 10px;">{{$data['money_name']}}</span></td>
+                    <td style="padding-top: 65px;" width="350px"><span style="font-family: 'Phetsarath OT'; padding-left: 10px;">({{$data['money_name']}})</span></td>
                     <td></td>
                 </tr>
             </table>

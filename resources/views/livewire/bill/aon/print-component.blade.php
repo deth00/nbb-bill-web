@@ -82,7 +82,7 @@
                                 </tr>
                                 <tr>
                                     <td colspan="2" width="627.4px" class="td-border2">
-                                        <h5 class="colorblack">ຈຳນວນເງິນ : #{{number_format($data['money'],2,',','.')}}#
+                                        <h5 class="colorblack">ຈຳນວນເງິນ : #{{number_format($data['money'],2,'.',',')}}#
                                         </h5>
                                         <h5 class="colorblack">(ຂຽນເປັນໂຕໜັງສື) &emsp; <span
                                                 class="text-center">#{{$data['money_name']}}#</span></h5>

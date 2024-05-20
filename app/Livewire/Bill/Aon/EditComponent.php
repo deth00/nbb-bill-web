@@ -9,8 +9,9 @@ class EditComponent extends Component
 {
 
     public $no, $type = 'OSD', $branch_send, $name_aon, $acno_nee, $money, $money_name,
-    $name_hub, $acno_mee, $branch_receive, $note;
+    $name_hub, $acno_mee, $branch_receive, $note, $start;
     public $hiddenId;
+    public $hideText;
 
     public function mount($id){
         $this->hiddenId = $id;
@@ -25,6 +26,7 @@ class EditComponent extends Component
         $this->acno_mee = $bm->acno_mee;
         $this->branch_receive = $bm->branch_receive;
         $this->note = $bm->note;
+        $this->start = $bm->valuedt;
     }
 
     public function render()
@@ -151,13 +153,14 @@ class EditComponent extends Component
             $this->branch_receive = '';
             $this->note = '';
             $this->hiddenId = '';
+            $this->start = '';
     }
 
     public function store(){
         $money = str_replace(',', '', $this->money);
         if (intval($money)) {
                 $bm = BhaiaonInside::find($this->hiddenId);
-                $bm->valuedt = date('Y-m-d');
+                $bm->valuedt = $this->start;
                 $bm->type = $this->type;
                 $bm->branch_send = $this->branch_send;
                 $bm->name_aon = $this->name_aon;
