@@ -17,6 +17,8 @@ Route::get('/print-mop/{id}', App\Livewire\Bill\Mop\PrintComponent::class)->name
 Route::get('/generate-pdf-mop/{id}', [App\Http\Controllers\PrintMopController::class, 'generatePDF'])->name('pdf-mop');
 
 Route::get('/bill-thons', App\Livewire\Bill\BillThonComponent::class)->name('bill-thon');
+Route::get('/create-thons', App\Livewire\Bill\Thon\CreateComponent::class)->name('create-thon');
+Route::get('/print-thon/{id}', App\Livewire\Bill\Thon\PrintComponent::class)->name('print-thon');
 
 Route::get('/bill-aons', App\Livewire\Bill\BillAonComponent::class)->name('bill-aon');
 Route::get('/create-aons', App\Livewire\Bill\Aon\CreateComponent::class)->name('create-aon');

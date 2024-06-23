@@ -19,7 +19,7 @@
             <div class="card-box">
                 <div class="row">
                     <div class="col-lg-12">
-                        <a href="{{route('create-aon')}}" class="btn btn-info text-white mt-3">
+                        <a href="{{route('create-thon')}}" class="btn btn-info text-white mt-3">
                             ເພີ່ມຂໍ້ມູນ
                         </a>
                     </div>
@@ -110,7 +110,7 @@
                                                         wire:click="delete({{$item->id}})"><i
                                                             class="mdi mdi-window-close"></i></a>
                                                     <a class="btn btn-info waves-effect waves-light"
-                                                        href="{{route('print-aon-old',$item->id)}}"><i
+                                                        href="{{route('print-thon',$item->id)}}"><i
                                                             class="mdi mdi-eye"></i></a>
                                                 </div>
                                             </td>
