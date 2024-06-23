@@ -118,7 +118,7 @@
                                                         wire:click="delete({{$item->id}})"><i
                                                             class="mdi mdi-window-close"></i></a>
                                                     <a class="btn btn-info waves-effect waves-light"
-                                                        href="{{route('print-aon-old',$item->id)}}"><i
+                                                        href="{{route('print-mop',$item->id)}}"><i
                                                             class="mdi mdi-eye"></i></a>
                                                 </div>
                                             </td>

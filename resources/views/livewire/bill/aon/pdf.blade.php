@@ -34,7 +34,7 @@
                 </tr> 
                 <tr>
                     <td style="padding-top: 5px;" colspan="2">
-                        <span style="font-family: 'Times New Roman';padding-left: 292px;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        <span style="font-family: 'Times New Roman';padding-left: 292px;">{{date('d',strtotime($data['valuedt']))}}
                             &nbsp;&nbsp; {{date('m',strtotime($data['valuedt']))}} &nbsp;&nbsp;&nbsp; {{date('Y',strtotime($data['valuedt']))}}</span>
                     </td>
                 </tr>

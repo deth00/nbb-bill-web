@@ -3,6 +3,11 @@
     border-bottom: 2px solid;
 }
 
+.td-border1 {
+    border: 1px solid;
+    border-bottom: 1px solid;
+}
+
 .border-buttom {
     border-bottom: 2px solid;
 }

@@ -47,7 +47,13 @@ class EditComponent extends Component
         $this->money = $bm->money;
         $this->money_name = $bm->money_name;
         $this->crc = $bm->acno_kou;
+        
         $this->type = $bm->type;
+        if($bm->type == 'AON'){
+            $this->check = true;
+            $this->addAon();
+        }
+        
         $this->name_hub = $bm->name_hub;
         $this->address_hub = $bm->address_hub;
         $this->tel_hub = $bm->tel_hub;
