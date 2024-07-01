@@ -28,6 +28,7 @@ return new class extends Migration
             $table->decimal('money_nee')->nullable();
             $table->string('money_nee_name')->nullable();
             $table->string('hub_ac_name')->nullable();
+            $table->string('hub_address')->nullable();
             $table->string('acno_mee')->nullable();
             $table->decimal('money_mee')->nullable();
             $table->string('money_mee_name')->nullable();

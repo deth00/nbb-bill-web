@@ -40,17 +40,10 @@
 
                             <table width="100%">
                                 <tr>
-                                    <td colspan="2"><span
-                                            style="font-size:28px;padding-left: 700px;"><b>ໃບຖອນເງິນສົດ</b></span> <span
-                                            class="text-right" style="font-size:14px;padding-left: 550px;"><b>ເລກທີ /
-                                                Bill No ...............</b></span></td>
+                                    <td colspan="2"></td>
                                 </tr>
                                 <tr>
-                                    <td colspan="2"><span><b class="timenewroman-font"
-                                                style="font-size:20px;padding-left: 700px;">CASH DEPOSIT</b></span>
-                                        <span class="text-right"><b class="text-right"
-                                                style="font-size:14px;padding-left: 550px;">ວັນທີ / Date
-                                                {{date('d / m / Y',strtotime($data->valuedt))}}</b></span>
+                                    <td colspan="2">
                                     </td>
                                 </tr>
                             </table> <br>
@@ -120,6 +113,29 @@
                                         </table>
                                     </td>
                                     <td width="70%">
+                                        <table width="100%">
+                                            <tr>
+                                                <td width="50%" class="text-center">
+                                                    <p
+                                                        style="font-size:28px;"><b>ໃບຖອນເງິນສົດ</b></p>
+                                                    <p 
+                                                        style="font-size:14px;"><b>CASH PAID OUT</b></p>
+                                                </td>
+                                                <td width="50%" class="text-right">
+                                                    <p style="font-size:14px;">
+                                                        
+                                                            ເລກທີ / Bill No: ............
+                                                       
+                                                    </p>
+                                                    <p style="font-size:14px;">
+                                                       
+                                                            ວັນທີ / Date
+                                                            {{date('d / m / Y',strtotime($data->valuedt))}}
+                                                        
+                                                    </p>
+                                                </td>
+                                            </tr>
+                                        </table>
                                     </td>
                                 </tr>
                                 <tr>
@@ -171,7 +187,8 @@
                                                         {{$data->crc}} </p>
                                                 </td>
                                                 <td width="10%">
-                                                    <p style="line-height:5px;padding-left: 10px;padding-top: 5px;">ຈຳນວນເງິນ</p>
+                                                    <p style="line-height:5px;padding-left: 10px;padding-top: 5px;">
+                                                        ຈຳນວນເງິນ</p>
                                                     <p style="line-height:0px;padding-left: 10px;"
                                                         class="timenewroman-font">Amount</p>
                                                 </td>
