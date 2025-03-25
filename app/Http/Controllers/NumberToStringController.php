@@ -263,7 +263,6 @@ class NumberToStringController extends Controller
             $numStr = ltrim($num, '0');
             $length = strlen($numStr);
             $result = "";
-
             // Handle numbers from 1,000,000,000 to 9,999,999,999
             if ($length == 10) {
                 $billions = $numStr[0]; // First digit (1-9)
@@ -286,7 +285,6 @@ class NumberToStringController extends Controller
 
                 // Handle hundred-millions part
                 $result .= $laoNumbers[$hundredMillions] . "ຮ້ອຍ";
-
                 // Handle remaining digits
                 if ($remaining != '00000000') {
                     $result .= convertIntegerToLao($remaining, $laoNumbers, $units);
@@ -307,6 +305,9 @@ class NumberToStringController extends Controller
                 } else {
                     $result .= $laoNumbers[$tenMillions] . "ສິບ";
                 }
+
+                // Append "ລ້ານ" for the millions part
+                $result .= "ລ້ານ";
 
                 // Handle remaining digits
                 if ($remaining != '0000000') {
