@@ -5,8 +5,8 @@ use Illuminate\Support\Facades\Route;
 // Route::get('/', function () {
 //     return view('welcome');
 // });
-
-Route::get('/', App\Livewire\DashboardComponent::class)->name('dashboard');
+Route::get('/', App\Livewire\Auth\LoginComponent::class)->name('login');
+Route::get('/dashboard', App\Livewire\DashboardComponent::class)->name('dashboard');
 
 Route::get('/core-cus', App\Livewire\Corebanking\CustomerComponent::class)->name('core-cus');
 
@@ -18,6 +18,7 @@ Route::get('/generate-pdf-mop/{id}', [App\Http\Controllers\PrintMopController::c
 
 Route::get('/bill-thons', App\Livewire\Bill\BillThonComponent::class)->name('bill-thon');
 Route::get('/create-thons', App\Livewire\Bill\Thon\CreateComponent::class)->name('create-thon');
+Route::get('/edit-thons/{id}', App\Livewire\Bill\Thon\EditComponent::class)->name('edit-thon');
 Route::get('/print-thon/{id}', App\Livewire\Bill\Thon\PrintComponent::class)->name('print-thon');
 
 Route::get('/bill-aons', App\Livewire\Bill\BillAonComponent::class)->name('bill-aon');
@@ -29,3 +30,10 @@ Route::get('/generate-pdf/{id}', [App\Http\Controllers\PrintAonController::class
 Route::get('/generate-pdf-old-news/{id}', [App\Http\Controllers\PrintAonController::class, 'generatePDFOldNews'])->name('pdf-aon-news');
 
 Route::get('/bill-morp-sit-aons', App\Livewire\Bill\BillMorpSitComponent::class)->name('bill-morp-sit-aon');
+
+Route::get('/report', App\Livewire\Report\ReportComponent::class)->name('report');
+Route::get('/report-mop', App\Livewire\Report\ReportMopComponent::class)->name('report-mop');
+Route::get('/report-thon', App\Livewire\Report\ReportThonComponent::class)->name('report-thon');
+Route::get('/report-aon', App\Livewire\Report\ReportAonComponent::class)->name('report-aon');
+
+Route::get('/logout', App\Livewire\Auth\LoginComponent::class,'logout')->name('logout');

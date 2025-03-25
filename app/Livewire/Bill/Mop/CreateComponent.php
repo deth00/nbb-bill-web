@@ -11,7 +11,7 @@ class CreateComponent extends Component
 {
     public $hiddenId;
     public $hideText = 'none', $check;
-    public $searchCus = '0508099576', $data_search1, $data_serach2, $data_serach_cus, $data_search_cus_acno;
+    public $searchCus, $data_search1, $data_serach2, $data_serach_cus, $data_search_cus_acno;
     public $name_mop, $tel, $address, $acno_fak;
     public $money, $money_name, $crc = 'LAK';
     public $san, $has, $sow, $sip, $har, $sng, $nug, $hal;
@@ -25,25 +25,30 @@ class CreateComponent extends Component
 
     public function searchCusData(){
 
-        $this->data_search1 = Http::withToken('eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyZXN1bHQiOnsiYXV0aF9pZCI6NSwiYXV0aF9uYW1lIjoibmJiIiwiYXV0aF9wYXNzIjoiJDJiJDEwJHptUWltdTBCOHI2UmRBWHI5OEc1ZWVwVWJ0a0djVk5SZFdqbGRLMS5vWnUzQTRGSEJFaVRxIiwiYXV0aF9zdGFydCI6IjIwMjMtMDktMTRUMDY6MDk6MDQuMDAwWiJ9LCJpYXQiOjE3MTU1NzI5NzQsImV4cCI6MTcyMzM0ODk3NH0.Qeu30YegewTKnyjyurywbjyCzi8e9SmTtxjddiVhHJw')
+        $this->data_search1 = Http::withToken('eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyZXN1bHQiOnsiYXV0aF9pZCI6NSwiYXV0aF9uYW1lIjoibmJiIiwiYXV0aF9wYXNzIjoiJDJiJDEwJHptUWltdTBCOHI2UmRBWHI5OEc1ZWVwVWJ0a0djVk5SZFdqbGRLMS5vWnUzQTRGSEJFaVRxIiwiYXV0aF9zdGFydCI6IjIwMjMtMDktMTRUMDY6MDk6MDQuMDAwWiJ9LCJpYXQiOjE3MjM1MjMwODksImV4cCI6MTczMTI5OTA4OX0.JujhcWn8DEMZeeBKp3-gDTpmvgfERhkCqbp3752a-5Y')
         ->post('192.168.10.55:6604/nbb/api/ctm/get/info', [
             "auth_id" => "5",
             "auth_name" => "nbb",
             "ctmcode" => $this->searchCus
         ])->json();
 
-        $this->data_search2 = Http::withToken('eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyZXN1bHQiOnsiYXV0aF9pZCI6NSwiYXV0aF9uYW1lIjoibmJiIiwiYXV0aF9wYXNzIjoiJDJiJDEwJHptUWltdTBCOHI2UmRBWHI5OEc1ZWVwVWJ0a0djVk5SZFdqbGRLMS5vWnUzQTRGSEJFaVRxIiwiYXV0aF9zdGFydCI6IjIwMjMtMDktMTRUMDY6MDk6MDQuMDAwWiJ9LCJpYXQiOjE3MTU1NzI5NzQsImV4cCI6MTcyMzM0ODk3NH0.Qeu30YegewTKnyjyurywbjyCzi8e9SmTtxjddiVhHJw')
+        $this->data_search2 = Http::withToken('eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyZXN1bHQiOnsiYXV0aF9pZCI6NSwiYXV0aF9uYW1lIjoibmJiIiwiYXV0aF9wYXNzIjoiJDJiJDEwJHptUWltdTBCOHI2UmRBWHI5OEc1ZWVwVWJ0a0djVk5SZFdqbGRLMS5vWnUzQTRGSEJFaVRxIiwiYXV0aF9zdGFydCI6IjIwMjMtMDktMTRUMDY6MDk6MDQuMDAwWiJ9LCJpYXQiOjE3MjM1MjMwODksImV4cCI6MTczMTI5OTA4OX0.JujhcWn8DEMZeeBKp3-gDTpmvgfERhkCqbp3752a-5Y')
         ->post('192.168.10.55:6604/nbb/api/ctm/get/credit', [
             "auth_id" => "5",
             "auth_name" => "nbb",
             "ctmcode" => $this->searchCus
         ])->json();
 
-        $this->name_mop = $this->data_search1['fullname'];
-        $this->tel = $this->data_search1['mphone']['HP'];
-        $this->address = $this->data_search1['address'];
-        $this->acno_fak = $this->data_search2['0']['acno'];
-        $this->dispatch('alert', type: 'success', message: 'ຄົ້ນຫາສຳເລັດ');
+            if(!empty($this->data_search1['message']) || !empty($this->data_search2['message'])){
+                $this->dispatch('alert', type: 'warning', message: 'ບໍ່ມີຂໍ້ມູນລູກຄ້າ ກະລຸນາລອງໃໝ່!');
+            }else{
+                $this->name_mop = $this->data_search1['fullname'];
+                $this->tel = $this->data_search1['mphone']['HP'];
+                $this->address = $this->data_search1['address'];
+                $this->acno_fak = $this->data_search2['0']['acno'];
+                $this->dispatch('alert', type: 'success', message: 'ຄົ້ນຫາສຳເລັດ');
+            }
+        
         // dd($this->data_search1);
 
     }
@@ -213,8 +218,8 @@ class CreateComponent extends Component
             $bm->bank_no = $this->bank_no;
             $bm->money_aon = $this->money_fees;
             $bm->lek_ac = $this->lek_ac;
-            $bm->user_id = 1;
-            $bm->department_id = 1;
+            $bm->user_id = auth()->user()->id;
+            $bm->department_id = auth()->user()->dpart_id;
             $bm->save();
     
             session()->flash('success', 'ເພີ່ມຂໍ້ມູນສຳເລັດ');

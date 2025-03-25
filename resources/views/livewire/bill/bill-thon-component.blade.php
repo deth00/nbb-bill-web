@@ -104,7 +104,7 @@
 
                                             <div class="btn-group btn-group-justified text-white mb-2">
                                                     <a class="btn btn-warning waves-effect waves-light"
-                                                        href="{{route('edit-aon',$item->id)}}"><i
+                                                        href="{{route('edit-thon',$item->id)}}"><i
                                                             class="mdi mdi-pencil-remove-outline"></i></a>
                                                     <a class="btn btn-danger waves-effect waves-light"
                                                         wire:click="delete({{$item->id}})"><i

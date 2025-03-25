@@ -18,7 +18,7 @@
         <div class="col-sm-12">
             <div class="card-box">
                 <div class="row">
-                    <div class="col-2">
+                    <!-- <div class="col-2">
                         <div class="form-group">
                             <div wire:ignore>
                                 <div class="input-group">
@@ -32,7 +32,7 @@
                                 </div>
                             </div>
                         </div>
-                    </div>
+                    </div> -->
                     <div class="col-2">
                         <div class="form-group">
                             <div>
@@ -69,20 +69,22 @@
                         <button class="btn btn-info phetsarath-font" wire:click="searchData"><i
                                 class="mdi mdi-file-search-outline"></i>
                             ຄົ້ນຫາ</button>
+                        <button class="btn btn-primary phetsarath-font" wire:click="showPrint">
+                            ພິມ</button>
                     </div>
                     <div class="col-12">
                         <hr>
                     </div>
                 </div>
-
-                <div class="row" style="display: {{$show}}">
+                {{$data2}}
+                <div class="row">
                     <div class="col-lg-12">
                         <table border="1" width="100%">
 
                             <thead>
                                 <tr class="text-center">
                                     <th class="p-2"> <div class="btn-switch btn-switch-success">
-                                            <input type="checkbox" id="input-btn-switch-primary99">
+                                            <input type="checkbox" id="input-btn-switch-primary99"  wire:click="$toggle('selected')" onclick="toggle(this)">
                                             <label for="input-btn-switch-primary99"
                                                 class="btn btn-rounded btn-success waves-effect waves-light">
                                                 <em class="fas fa-check"></em>
@@ -100,12 +102,12 @@
                             <tbody>
                                 @php $no = 1; $i = 1; @endphp
                                 @if($data)
-                                @forelse ($data['data'] as $item)
+                                @forelse ($data['data'] as $key => $item)
                                 <tr class="text-center">
                                     <td class="p-2">
                                         <div class="btn-switch btn-switch-primary">
-                                            <input type="checkbox" id="input-btn-switch-primary1">
-                                            <label for="input-btn-switch-primary1"
+                                            <input type="checkbox" id="input-btn-switch-primary{{$key}}" wire:model="selectedIds" value="{{$key}}" @if($selected !== false) checked @endif>
+                                            <label for="input-btn-switch-primary{{$key}}"
                                                 class="btn btn-rounded btn-primary waves-effect waves-light">
                                                 <em class="fas fa-check"></em>
                                                 <strong> ເລືອກ</strong>
@@ -136,9 +138,52 @@
                     </div>
                 </div>
 
+
             </div>
         </div>
     </div>
 </div>
 
+@push('scripts')
+    <script>
+        // $('#select-all').click(function(event) {   
+        //     if(this.checked) {
+        //         // Iterate each checkbox
+        //         $(':checkbox').each(function() {
+        //             this.checked = true;                        
+        //         });
+        //     } else {
+        //         $(':checkbox').each(function() {
+        //             this.checked = false;                       
+        //         });
+        //     }
+        // });
 
+        function toggle(source) {
+            var checkboxes = document.querySelectorAll('input[type="checkbox"]');
+            for (var i = 0; i < checkboxes.length; i++) {
+                if (checkboxes[i] != source)
+                    checkboxes[i].checked = source.checked;
+            }
+        }
+    </script>
+
+<script>
+var isAllCheck = false;
+function togglecheckboxes(cn){
+
+    var cbarray = document.getElementsByName(cn);
+    for(var i = 0; i < cbarray.length; i++){
+
+        if( isAllCheck == false ){
+            cbarray[i].checked = true;
+        }else{ 
+            cbarray[i].checked = false;
+        }
+}   
+isAllCheck = !isAllCheck;   
+}
+</script>
+
+</script>
+@endpush
