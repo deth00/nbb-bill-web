@@ -169,7 +169,7 @@ class CreateComponent extends Component
     
             $translate = new NumberToStringController();
             $result = $translate->convert($this->money);
-            $this->money_name = $result;
+            $this->money_name = $result . ' ກີບ';
     
             $this->dispatch('hide-addmoney');
             $this->dispatch('alert', type: 'success', message: 'ບັນທຶກຈຳນວນເງິນສຳເລັດ');

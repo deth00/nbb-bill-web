@@ -44,14 +44,9 @@ class SqlServerBuilder extends Builder
 
         $table = $this->connection->getTablePrefix().$table;
 
-        foreach ($this->getTables() as $value) {
-            if (strtolower($table) === strtolower($value['name'])
-                && strtolower($schema) === strtolower($value['schema'])) {
-                return true;
-            }
-        }
-
-        return false;
+        return (bool) $this->connection->scalar(
+            $this->grammar->compileTableExists($schema, $table)
+        );
     }
 
     /**
@@ -64,6 +59,7 @@ class SqlServerBuilder extends Builder
     {
         [$schema, $view] = $this->parseSchemaAndTable($view);
 
+        $schema ??= $this->getDefaultSchema();
         $view = $this->connection->getTablePrefix().$view;
 
         foreach ($this->getViews() as $value) {
@@ -152,6 +148,16 @@ class SqlServerBuilder extends Builder
     }
 
     /**
+     * Get the default schema for the connection.
+     *
+     * @return string
+     */
+    protected function getDefaultSchema()
+    {
+        return $this->connection->scalar($this->grammar->compileDefaultSchema());
+    }
+
+    /**
      * Parse the database object reference and extract the schema and table.
      *
      * @param  string  $reference
@@ -159,7 +165,7 @@ class SqlServerBuilder extends Builder
      */
     protected function parseSchemaAndTable($reference)
     {
-        $parts = array_pad(explode('.', $reference, 2), -2, 'dbo');
+        $parts = array_pad(explode('.', $reference, 2), -2, null);
 
         if (str_contains($parts[1], '.')) {
             $database = $parts[0];
