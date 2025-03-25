@@ -412,7 +412,7 @@ class NumberToStringController extends Controller
                 }
             }
 
-            return $result.'ກີບ';
+            return $result;
         }
 
         // Convert integer part
