@@ -85,12 +85,12 @@
                                         @forelse ($bhaiaon as $key => $item)
                                         <tr>
                                             <td class="text-center p-2">{{$no++}}</td>
-                                            <td class="text-center p-2">{{$item->no}}</td>
-                                            <td class="text-center p-2">
+                                            <td class="text-center p-2" style="font-family: 'Times New Roman'">{{$item->no}}</td>
+                                            <td class="text-center p-2" style="font-family: 'Times New Roman'">
                                                 {{date('d/m/Y', strtotime($item->valuedt))}}</td>
                                             <td class="text-center p-2">{{$item->branch_send}}</td>
                                             <td class="text-center p-2">{{$item->name_aon}}</td>
-                                            <td class="text-right p-2" style="text-align: right;">
+                                            <td class="text-right p-2" style="text-align: right; font-family: 'Times New Roman'">
                                                 {{number_format($item->money)}}</td>
                                             <td class="text-center p-2">
                                                 @if ($item->type == 'ISD')

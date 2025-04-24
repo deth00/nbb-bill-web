@@ -19,18 +19,24 @@
                 <div class="card-header">
                     <div class="row">
                         <div class="col-3">
-                            <a href="{{route('bill-morp')}}" class="btn btn-danger float-end">ກັບຄືນ</a>
-                            @if($data['del'] != 0)
-                            <a href="{{route('pdf-mop',$hidId)}}" target="_bank"
-                                class="btn btn-primary float-end mx-2">ພິມບິນ</a>
+                            <a href="{{ route('bill-morp') }}" class="btn btn-danger float-end">ກັບຄືນ</a>
+                            @if ($data['del'] != 0)
+                                <a href="{{ route('pdf-mop', $hidId) }}" target="_bank"
+                                    class="btn btn-primary float-end mx-2">ພິມບິນ</a>
                             @endif
                         </div>
                         <div class="col-9 text-right">
                             ວັນທີ :
-                            <strong>{{date('d/m/Y H:i:s', strtotime($data['created_at']))}}</strong>
-                            <span class="float-end"> <strong>ສະຖານະ:</strong> <span class="text-danger">@if($data['del']
-                                    == 1)
-                                    ລໍຖ້າປິ່ນ @elseif($data['del'] == 2) ປິ່ນສຳເລັດ @else ຍົກເລີກ @endif</span></span>
+                            <strong>{{ date('d/m/Y H:i:s', strtotime($data['created_at'])) }}</strong>
+                            <span class="float-end"> <strong>ສະຖານະ:</strong> <span class="text-danger">
+                                    @if ($data['del'] == 1)
+                                        ລໍຖ້າປິ່ນ
+                                    @elseif($data['del'] == 2)
+                                        ປິ່ນສຳເລັດ
+                                    @elseif ($data['del'] == 0)
+                                        ຍົກເລີກ
+                                    @endif
+                                </span></span>
                         </div>
                     </div>
                 </div>
@@ -50,7 +56,7 @@
                                                 style="font-size:20px;padding-left: 700px;">CASH DEPOSIT</b></span>
                                         <span class="text-right"><b class="text-right"
                                                 style="font-size:14px;padding-left: 550px;">ວັນທີ / Date
-                                                {{date('d / m / Y',strtotime($data->valuedt))}}</b></span>
+                                                {{ date('d / m / Y', strtotime($data->valuedt)) }}</b></span>
                                     </td>
                                 </tr>
                             </table> <br>
@@ -74,47 +80,47 @@
                                             <tr class="text-center">
                                                 <td class="timenewroman-font py-2">100,000</td>
                                                 <td class="timenewroman-font py-2">
-                                                    {{number_format($data->san,0,'.',',')}}</td>
+                                                    {{ number_format($data->san, 0, '.', ',') }}</td>
                                             </tr>
                                             <tr class="text-center">
                                                 <td class="timenewroman-font py-2">50,000</td>
                                                 <td class="timenewroman-font py-2">
-                                                    {{number_format($data->has,0,'.',',')}}</td>
+                                                    {{ number_format($data->has, 0, '.', ',') }}</td>
                                             </tr>
                                             <tr class="text-center">
                                                 <td class="timenewroman-font py-2">20,000</td>
                                                 <td class="timenewroman-font py-2">
-                                                    {{number_format($data->sow,0,'.',',')}}</td>
+                                                    {{ number_format($data->sow, 0, '.', ',') }}</td>
                                             </tr>
                                             <tr class="text-center">
                                                 <td class="timenewroman-font py-2">10,000</td>
                                                 <td class="timenewroman-font py-2">
-                                                    {{number_format($data->sip,0,'.',',')}}</td>
+                                                    {{ number_format($data->sip, 0, '.', ',') }}</td>
                                             </tr>
                                             <tr class="text-center">
                                                 <td class="timenewroman-font py-2">5,000</td>
                                                 <td class="timenewroman-font py-2">
-                                                    {{number_format($data->har,0,'.',',')}}</td>
+                                                    {{ number_format($data->har, 0, '.', ',') }}</td>
                                             </tr>
                                             <tr class="text-center">
                                                 <td class="timenewroman-font py-2">2,000</td>
                                                 <td class="timenewroman-font py-2">
-                                                    {{number_format($data->sng,0,'.',',')}}</td>
+                                                    {{ number_format($data->sng, 0, '.', ',') }}</td>
                                             </tr>
                                             <tr class="text-center">
                                                 <td class="timenewroman-font py-2">1,000</td>
                                                 <td class="timenewroman-font py-2">
-                                                    {{number_format($data->nung,0,'.',',')}}</td>
+                                                    {{ number_format($data->nung, 0, '.', ',') }}</td>
                                             </tr>
                                             <tr class="text-center">
                                                 <td class="timenewroman-font py-2">500</td>
                                                 <td class="timenewroman-font py-2">
-                                                    {{number_format($data->hal,0,'.',',')}}</td>
+                                                    {{ number_format($data->hal, 0, '.', ',') }}</td>
                                             </tr>
                                             <tr class="text-center">
                                                 <td class="py-2">ລວມ / Total</td>
                                                 <td class="timenewroman-font py-2">
-                                                    {{number_format($data->san + $data->has + $data->sow + $data->sip + $data->har + $data->sng + $data->nung +$data->hal,0,'.',',')}}
+                                                    {{ number_format($data->san + $data->has + $data->sow + $data->sip + $data->har + $data->sng + $data->nung + $data->hal, 0, '.', ',') }}
                                                 </td>
                                             </tr>
                                         </table>
@@ -127,7 +133,7 @@
                                                     <p style="line-height:0px">Deposit By</p>
                                                 </td>
                                                 <td class="text-center" width="92%">
-                                                    <p style="line-height:5px; color: red;">{{$data->name_mop}}</p>
+                                                    <p style="line-height:5px; color: red;">{{ $data->name_mop }}</p>
                                                     <p style="line-height:0px">
                                                         <hr>
                                                     </p>
@@ -149,7 +155,7 @@
                                                             </td>
                                                             <td class="text-center" width="100%">
                                                                 <p style="line-height:5px; color: red;">
-                                                                    {{$data->address}}</p>
+                                                                    {{ $data->address }}</p>
                                                                 <p style="line-height:0px">
                                                                     <hr>
                                                                 </p>
@@ -166,7 +172,7 @@
                                                             </td>
                                                             <td class="text-center" width="90%">
                                                                 <p style="line-height:5px; color: red;">
-                                                                    {{$data->tel}}</p>
+                                                                    {{ $data->tel }}</p>
                                                                 <p style="line-height:0px">
                                                                     <hr>
                                                                 </p>
@@ -188,7 +194,7 @@
                                                 </td>
                                                 <td class="text-center" width="90.5%">
                                                     <p style="line-height:5px; color: red;">
-                                                        {{$data->detail}}</p>
+                                                        {{ $data->detail }}</p>
                                                     <p style="line-height:0px">
                                                         <hr>
                                                     </p>
@@ -203,11 +209,12 @@
                                             <tr>
                                                 <td width="10%">
                                                     <p style="line-height:5px">ເລກບັນຊີ</p>
-                                                    <p style="line-height:0px" class="timenewroman-font">Account No </p>
+                                                    <p style="line-height:0px" class="timenewroman-font">Account No
+                                                    </p>
                                                 </td>
                                                 <td class="td-border1">
                                                     <p style="line-height:0px;padding-left: 200px;padding-top:15px;color:red;"
-                                                        class="timenewroman-font">{{$data->acno_fak}} </p>
+                                                        class="timenewroman-font">{{ $data->acno_fak }} </p>
                                                 </td>
                                             </tr>
                                         </table>
@@ -224,16 +231,18 @@
                                                 </td>
                                                 <td width="20%" class="td-border1">
                                                     <p style="line-height:0px;padding-left: 50px;padding-top:15px;">
-                                                        {{$data->acno_kou}} </p>
+                                                        {{ $data->acno_kou }} </p>
                                                 </td>
                                                 <td width="10%">
-                                                    <p style="line-height:5px;padding-left: 10px;padding-top: 5px;">ຈຳນວນເງິນ</p>
+                                                    <p style="line-height:5px;padding-left: 10px;padding-top: 5px;">
+                                                        ຈຳນວນເງິນ</p>
                                                     <p style="line-height:0px;padding-left: 10px;"
                                                         class="timenewroman-font">Amount</p>
                                                 </td>
                                                 <td class="td-border1">
                                                     <p style="line-height:0px;padding-left: 200px;padding-top:15px;color:red;"
-                                                        class="timenewroman-font">#{{number_format($data->money)}}#</p>
+                                                        class="timenewroman-font">#{{ number_format($data->money) }}#
+                                                    </p>
                                                 </td>
                                             </tr>
                                         </table>
@@ -246,13 +255,14 @@
                                                 <td width="20%">
                                                     <p style="line-height:5px; padding-top: 5px;">
                                                         ຈຳນວນເງິນຂຽນເປັນຕົວໜັງສື</p>
-                                                    <p style="line-height:0px" class="timenewroman-font">Anount in words
+                                                    <p style="line-height:0px" class="timenewroman-font">Anount in
+                                                        words
                                                     </p>
                                                 </td>
                                                 <td class="td-border1">
                                                     <p
                                                         style="line-height:0px;padding-left: 200px;padding-top:15px;color:red;">
-                                                        ({{$data->money_name}})</p>
+                                                        ({{ $data->money_name }})</p>
                                                 </td>
                                             </tr>
                                         </table>
@@ -290,7 +300,7 @@
                                                             </td>
                                                             <td class="text-center" width="90.5%">
                                                                 <p style="line-height:5px; color: red;">
-                                                                    {{$data->name_hub}}</p>
+                                                                    {{ $data->name_hub }}</p>
                                                                 <p style="line-height:0px">
                                                                     <hr>
                                                                 </p>
@@ -307,7 +317,7 @@
                                                             </td>
                                                             <td class="text-center" width="90.5%">
                                                                 <p style="line-height:5px; color: red;">
-                                                                    {{$data->address_hub}}</p>
+                                                                    {{ $data->address_hub }}</p>
                                                                 <p style="line-height:0px">
                                                                     <hr>
                                                                 </p>
@@ -332,7 +342,7 @@
                                                             </td>
                                                             <td class="text-center" width="90.5%">
                                                                 <p style="line-height:5px; color: red;">
-                                                                    {{$data->tel_hub}}</p>
+                                                                    {{ $data->tel_hub }}</p>
                                                                 <p style="line-height:0px">
                                                                     <hr>
                                                                 </p>
@@ -349,7 +359,7 @@
                                                             </td>
                                                             <td class="text-center" width="87%">
                                                                 <p style="line-height:5px; color: red;">
-                                                                    {{$data->card_no}}</p>
+                                                                    {{ $data->card_no }}</p>
                                                                 <p style="line-height:0px">
                                                                     <hr>
                                                                 </p>
@@ -366,7 +376,7 @@
                                                             </td>
                                                             <td class="text-center" width="55%">
                                                                 <p style="line-height:5px; color: red;">
-                                                                    {{$data->card_type}}</p>
+                                                                    {{ $data->card_type }}</p>
                                                                 <p style="line-height:0px">
                                                                     <hr>
                                                                 </p>
@@ -391,7 +401,7 @@
                                                             </td>
                                                             <td class="text-center" width="90%">
                                                                 <p style="line-height:5px; color: red;">
-                                                                    {{$data->branch_name}}</p>
+                                                                    {{ $data->branch_name }}</p>
                                                                 <p style="line-height:0px">
                                                                     <hr>
                                                                 </p>
@@ -408,7 +418,7 @@
                                                             </td>
                                                             <td class="text-center" width="70%">
                                                                 <p style="line-height:5px; color: red;">
-                                                                    {{$data->unit}}</p>
+                                                                    {{ $data->unit }}</p>
                                                                 <p style="line-height:0px">
                                                                     <hr>
                                                                 </p>
@@ -425,7 +435,7 @@
                                                             </td>
                                                             <td class="text-center" width="87%">
                                                                 <p style="line-height:5px; color: red;">
-                                                                    {{$data->acno_hub}}</p>
+                                                                    {{ $data->acno_hub }}</p>
                                                                 <p style="line-height:0px">
                                                                     <hr>
                                                                 </p>
@@ -450,7 +460,7 @@
                                                             </td>
                                                             <td width="100%" class="text-center">
                                                                 <p style="line-height:5px; color: red;">
-                                                                    {{$data->name_hub}}</p>
+                                                                    {{ $data->name_hub }}</p>
                                                                 <p style="line-height:0px">
                                                                     <hr>
                                                                 </p>
@@ -467,7 +477,7 @@
                                                             </td>
                                                             <td class="text-center" width="100%">
                                                                 <p style="line-height:5px; color: red;">
-                                                                    {{$data->address_hub}}</p>
+                                                                    {{ $data->address_hub }}</p>
                                                                 <p style="line-height:0px">
                                                                     <hr>
                                                                 </p>

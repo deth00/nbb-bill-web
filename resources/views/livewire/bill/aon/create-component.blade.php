@@ -51,7 +51,7 @@
                             </div>
                             <div class="form-group py-2">
                                 <p>ຈຳນວນເງິນ</p>
-                                <input type="text" name="money" wire:keydown.enter="generate" id="money"
+                                <input style="font-family: 'Times New Roman'" type="text" name="money" wire:keydown.enter="generate" id="money"
                                     class="form-control money" placeholder="ຈຳນວນເງິນ" wire:model="money">
                             </div>
                             <div class="form-group py-2">

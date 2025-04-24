@@ -4,6 +4,7 @@ namespace App\Livewire\Bill\Aon;
 
 use Livewire\Component;
 use App\Models\BhaiaonInside;
+use App\Models\LogBhai;
 use App\Http\Controllers\NumberToStringController;
 
 class CreateComponent extends Component
@@ -36,7 +37,7 @@ class CreateComponent extends Component
             if (intval($moneys)) {
                 $translate = new NumberToStringController();
                 $result = $translate->convert($moneys);
-                $this->money_name = $result;
+                $this->money_name = $result . 'ກິບຖ້ວນ';
             }else{
                 $this->dispatch('alert',type: 'error', message:'ກະລຸນາປ້ອນຈຳນວນເງິນເປັນຕົວເລກ!');
             }
@@ -85,6 +86,12 @@ class CreateComponent extends Component
                 $bm->user_id = auth()->user()->id;
                 $bm->department_id = auth()->user()->dpart_id;
                 $bm->save();
+
+                $log = new LogBhai();
+                $log->user_id = auth()->user()->id;
+                $log->bhaiaon_id = $bm->id;
+                $log->valuedt = date('Y-m-d H:i:s');
+                $log->save();
         
                 session()->flash('success', 'ເພີ່ມຂໍ້ມູນສຳເລັດ');
                 if($this->type == 'OSD'){
