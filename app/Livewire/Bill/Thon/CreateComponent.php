@@ -4,6 +4,7 @@ namespace App\Livewire\Bill\Thon;
 
 use Livewire\Component;
 use App\Models\BhaiThon;
+use App\Models\LogBhai;
 use Illuminate\Support\Facades\Http;
 use App\Http\Controllers\NumberToStringController;
 
@@ -160,7 +161,7 @@ class CreateComponent extends Component
     
             $translate = new NumberToStringController();
             $result = $translate->convert($this->money);
-            $this->money_name = $result;
+            $this->money_name = $result . 'ກິບຖ້ວນ';
     
             $this->dispatch('hide-addmoney');
             $this->dispatch('alert', type: 'success', message: 'ບັນທຶກຈຳນວນເງິນສຳເລັດ');
@@ -193,6 +194,12 @@ class CreateComponent extends Component
         $bm->user_id = auth()->user()->id;
         $bm->department_id = auth()->user()->dpart_id;
         $bm->save();
+
+        $log = new LogBhai();
+        $log->user_id = auth()->user()->id;
+        $log->bhaithons_id = $bm->id;
+        $log->valuedt = date('Y-m-d H:i:s');
+        $log->save();
 
         session()->flash('success', 'ເພີ່ມຂໍ້ມູນສຳເລັດ');
         return redirect(route('bill-thon'));

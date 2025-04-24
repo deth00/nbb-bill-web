@@ -263,8 +263,73 @@ class NumberToStringController extends Controller
             $numStr = ltrim($num, '0');
             $length = strlen($numStr);
             $result = "";
+            // dd($length );
+            // Handle numbers from 1,000,000,000,000 to 9,999,999,999,999
+            if ($length == 13) {
+                $trillions = $numStr[0]; // First digit (1-9)
+                $remaining = substr($numStr, 1); // Remaining digits (1,000,000,000,000 to 9,999,999,999,999)
 
-            // Handle numbers from 1,000,000,000 to 9,999,999,999
+                // Handle trillions part
+                $result .= $laoNumbers[$trillions] . "ພັນ";
+
+                // Handle remaining digits
+                if ($remaining != '000000000000') {
+                    $result .= convertIntegerToLao($remaining, $laoNumbers, $units);
+                }
+
+                return $result;
+            }
+
+            // Handle numbers from 100,000,000,000 to 9,999,999,999,999
+            if ($length == 12) {
+                $hundredBillions = $numStr[0]; // First digit (1-9)
+                $remaining = substr($numStr, 1); // Remaining digits (10,000,000,000 to 99,999,999,999)
+
+
+                // Handle hundred-billions part
+                $result .= $laoNumbers[$hundredBillions] . "ຮ້ອຍ";
+
+                // Handle remaining digits
+                if ($remaining != '00000000000') {
+                    $result .= convertIntegerToLao($remaining, $laoNumbers, $units);
+                }
+
+                return $result;
+            }
+
+            if ($length == 11) {
+                $tenBillions = $numStr[0]; // First digit (1-9)
+                $remaining = substr($numStr, 1); // Remaining digits (10,000,000,000 to 99,999,999,999)
+
+                // Handle hundred-billions part
+                if ($tenBillions == '1') {
+                    $result .= "ສິບ";
+                } elseif ($tenBillions == '2') {
+                    $result .= "ຊາວ";
+                } else {
+                    $result .= $laoNumbers[$tenBillions] . "ສິບ";
+                }
+
+                // Handle billions part
+                $billions = $numStr[1]; // Second digit (0-9)
+                if ($billions == '1') {
+                    $result .= "ເອັດ";
+                } elseif ($billions != '0') {
+                    $result .= $laoNumbers[$billions];
+                }
+
+                $result .= "ຕື້";
+
+                // Handle remaining digits
+                $remaining = substr($numStr, 2);
+                if ($remaining != '00000000000') {
+                    $result .= convertIntegerToLao($remaining, $laoNumbers, $units);
+                }
+
+                return $result;
+            }
+
+            // // Handle numbers from 1,000,000,000 to 9,999,999,999
             if ($length == 10) {
                 $billions = $numStr[0]; // First digit (1-9)
                 $remaining = substr($numStr, 1); // Remaining digits (100,000,000 to 999,999,999)
@@ -283,18 +348,58 @@ class NumberToStringController extends Controller
             if ($length == 9) {
                 $hundredMillions = $numStr[0]; // First digit (1-9)
                 $remaining = ltrim(substr($numStr, 1), '0'); // Remaining digits without leading zeros
-
+                // dd($remaining);
                 // Handle hundred-millions part
                 $result .= $laoNumbers[$hundredMillions] . "ຮ້ອຍ";
+                if (empty($remaining)) {
+                    $result .= 'ລ້ານ';
+                    # code...
+                }
 
                 // Handle remaining digits
                 if ($remaining != '00000000') {
                     $result .= convertIntegerToLao($remaining, $laoNumbers, $units);
+                } else {
+                    $result .= 'ລ້ານ';
                 }
+                // dd($result);
                 return $result;
             }
 
             // Handle numbers from 10,000,000 to 99,999,999
+            // if ($length == 8) {
+            //     $tenMillions = $numStr[0]; // First digit (1-9)
+            //     $remaining = substr($numStr, 1); // Remaining digits (1,000,000 to 9,999,999)
+
+            //     // Handle ten-millions part
+            //     if ($tenMillions == '1') {
+            //         // Special case for 11,000,000
+            //         if (substr($numStr, 0, 2) == '11') {
+            //             $result .= "ສິບເອັດລ້ານ";
+            //             $remaining = substr($numStr, 2); // Remove the first two digits
+            //         } else {
+            //             $result .= "ສິບ";
+            //         }
+            //     } elseif ($tenMillions == '2') {
+            //         if (substr($numStr, 0, 2) == '21') {
+            //             $result .= "ຊາວເອັດລ້ານ";
+            //             $remaining = substr($numStr, 2); // Remove the first two digits
+            //         } else {
+            //             $result .= "ຊາວ";
+            //         }
+            //     } else {
+            //         $result .= $laoNumbers[$tenMillions] . "ສິບ";
+            //     }
+
+            //     // Handle remaining digits
+            //     if ($remaining != '0000000') {
+            //         $result .= convertIntegerToLao($remaining, $laoNumbers, $units);
+            //     } else {
+            //         $result .= 'ລ້ານ';
+            //     }
+            //     return $result;
+            // }
+
             if ($length == 8) {
                 $tenMillions = $numStr[0]; // First digit (1-9)
                 $remaining = substr($numStr, 1); // Remaining digits (1,000,000 to 9,999,999)
@@ -308,8 +413,19 @@ class NumberToStringController extends Controller
                     $result .= $laoNumbers[$tenMillions] . "ສິບ";
                 }
 
+                // Handle millions part
+                $millions = $numStr[1]; // Second digit (0-9)
+                if ($millions == '1') {
+                    $result .= "ເອັດ";
+                } elseif ($millions != '0') {
+                    $result .= $laoNumbers[$millions];
+                }
+
+                $result .= "ລ້ານ";
+
                 // Handle remaining digits
-                if ($remaining != '0000000') {
+                $remaining = substr($numStr, 2);
+                if ($remaining != '000000') {
                     $result .= convertIntegerToLao($remaining, $laoNumbers, $units);
                 }
                 return $result;
@@ -374,7 +490,7 @@ class NumberToStringController extends Controller
                 if ($remaining != '000') {
                     $result .= convertIntegerToLao($remaining, $laoNumbers, $units);
                 }
-                // dd(123);
+
                 return $result;
             }
 
@@ -412,7 +528,9 @@ class NumberToStringController extends Controller
                 }
             }
 
-            return $result;
+
+
+            return $result ;
         }
 
         // Convert integer part

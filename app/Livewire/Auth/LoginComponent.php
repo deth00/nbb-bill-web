@@ -19,13 +19,14 @@ class LoginComponent extends Component
         return view('livewire.auth.login-component')->layout('components.layouts.login.app');
     }
 
-    public function login(){
+    public function login()
+    {
         $this->validate([
-            'username'=>'required',
-            'password'=>'required',
-        ],[
-            'username.required'=>'ກະລຸນາປ້ອນ ອີເມວ ກ່ອນ!',
-            'password.required'=>'ກະລຸນາປ້ອນ ລະຫັດຜ່ານ ກ່ອນ!',
+            'username' => 'required',
+            'password' => 'required',
+        ], [
+            'username.required' => 'ກະລຸນາປ້ອນ ອີເມວ ກ່ອນ!',
+            'password.required' => 'ກະລຸນາປ້ອນ ລະຫັດຜ່ານ ກ່ອນ!',
         ]);
 
         // $response = Http::post('http://192.168.128.193:8080/api/login', [
@@ -46,20 +47,21 @@ class LoginComponent extends Component
         //         return redirect(route('dashboard'));
         // }
 
-        if(Auth::attempt([
-            'email'=> $this->username,
-            'password'=> $this->password
-        ]))
-        {
-                session()->flash('success', 'ເຂົ້າລະບົບສຳເລັດ');
-                return redirect(route('dashboard'));
-        }else{
-            $this->dispatch('alert',type: 'error', message:'ອີເມວ ຫຼື ລະຫັດຜ່ານບໍ່ຖືກຕ້ອງ, ກະລຸນາລອງໃໝ່!');
+        if (Auth::attempt([
+            'email' => $this->username,
+            'password' => $this->password
+        ])) {
+
+            session()->flash('success', 'ເຂົ້າລະບົບສຳເລັດ');
+            return redirect(route('dashboard'));
+        } else {
+            $this->dispatch('alert', type: 'error', message: 'ອີເມວ ຫຼື ລະຫັດຜ່ານບໍ່ຖືກຕ້ອງ, ກະລຸນາລອງໃໝ່!');
             $this->password = null;
         }
     }
 
-    public function logout(){
+    public function logout()
+    {
         // $token = Cookie::get('token');;
         // $response = Http::withToken($token)->post('http://192.168.128.193:8080/api/logout');
         // session()->flash('success', 'ອອກລະບົບສຳເລັດ');
@@ -69,22 +71,24 @@ class LoginComponent extends Component
         return redirect(route('login'));
     }
 
-    public function showReset(){
+    public function showReset()
+    {
         $this->dispatch('show-reset');
     }
 
-    public function resetPass(){
-        $response = Http::post('http://127.0.0.1:8080/api/reset-pass',[
-            'email'=>$this->email
+    public function resetPass()
+    {
+        $response = Http::post('http://127.0.0.1:8080/api/reset-pass', [
+            'email' => $this->email
         ]);
 
-        if($response){
-            return redirect(route('forgot-password',$response['data']['id']));
+        if ($response) {
+            return redirect(route('forgot-password', $response['data']['id']));
         }
-       
     }
 
-    public function register(){
+    public function register()
+    {
         return redirect(route('regis'));
     }
 }

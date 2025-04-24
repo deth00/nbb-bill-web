@@ -35,7 +35,7 @@
                             <div class="form-group">
                                 <p>ລະຫັດລູກຄ້າ</p>
                                 <div class="input-group">
-                                    <input type="text" id="example-input3-group2" name="example-input3-group2"
+                                    <input  type="text" id="example-input3-group2" name="example-input3-group2"
                                         class="form-control" placeholder="ລະຫັດລູກຄ້າ" wire:model="searchCus"
                                         wire:keydown.enter="searchCusData">
                                     <span class="input-group-append">
@@ -80,7 +80,7 @@
                             <div class="form-group">
                                 <p>ຈຳນວນເງິນ</p>
                                 <div class="input-group">
-                                    <input type="text" id="example-input3-group2" name="example-input3-group2"
+                                    <input style="font-family: 'Times New Roman'" type="text" id="example-input3-group2" name="example-input3-group2"
                                         class="form-control" placeholder="ຈຳນວນເງິນ" value="{{number_format($money)}}"
                                         wire:keydown.enter="addMoney" disabled>
                                     <span class="input-group-append">
@@ -218,7 +218,7 @@
                         <div class="col-md-12">
                             <div class="form-group">
                                 <label for="name">ໃບ 100,000</label>
-                                <input type="text" wire:model="san" class="form-control money" placeholder="ໃບ 100,000" wire:keydown.enter="storeMoney">
+                                <input style="font-family: 'Times New Roman'" type="text" wire:model="san" class="form-control money" placeholder="ໃບ 100,000" wire:keydown.enter="storeMoney">
                             </div>
                         </div>
                     </div>
@@ -226,7 +226,7 @@
                         <div class="col-md-12">
                             <div class="form-group">
                                 <label for="name">ໃບ 50,000</label>
-                                <input type="text" wire:model="has" class="form-control money" placeholder="ໃບ 50,000" wire:keydown.enter="storeMoney">
+                                <input style="font-family: 'Times New Roman'" type="text" wire:model="has" class="form-control money" placeholder="ໃບ 50,000" wire:keydown.enter="storeMoney">
                             </div>
                         </div>
                     </div>
@@ -234,7 +234,7 @@
                         <div class="col-md-12">
                             <div class="form-group">
                                 <label for="name">ໃບ 20,000</label>
-                                <input type="text" wire:model="sow" class="form-control money" placeholder="ໃບ 20,000" wire:keydown.enter="storeMoney">
+                                <input style="font-family: 'Times New Roman'" type="text" wire:model="sow" class="form-control money" placeholder="ໃບ 20,000" wire:keydown.enter="storeMoney">
                             </div>
                         </div>
                     </div>
@@ -242,7 +242,7 @@
                         <div class="col-md-12">
                             <div class="form-group">
                                 <label for="name">ໃບ 10,000</label>
-                                <input type="text" wire:model="sip" class="form-control money" placeholder="ໃບ 10,000" wire:keydown.enter="storeMoney">
+                                <input style="font-family: 'Times New Roman'" type="text" wire:model="sip" class="form-control money" placeholder="ໃບ 10,000" wire:keydown.enter="storeMoney">
                             </div>
                         </div>
                     </div>
@@ -250,7 +250,7 @@
                         <div class="col-md-12">
                             <div class="form-group">
                                 <label for="name">ໃບ 5,000</label>
-                                <input type="text" wire:model="har" class="form-control money" placeholder="ໃບ 5,000" wire:keydown.enter="storeMoney">
+                                <input style="font-family: 'Times New Roman'" type="text" wire:model="har" class="form-control money" placeholder="ໃບ 5,000" wire:keydown.enter="storeMoney">
                             </div>
                         </div>
                     </div>
@@ -258,7 +258,7 @@
                         <div class="col-md-12">
                             <div class="form-group">
                                 <label for="name">ໃບ 2,000</label>
-                                <input type="text" wire:model="sng" class="form-control money" placeholder="ໃບ 2,000" wire:keydown.enter="storeMoney">
+                                <input style="font-family: 'Times New Roman'" type="text" wire:model="sng" class="form-control money" placeholder="ໃບ 2,000" wire:keydown.enter="storeMoney">
                             </div>
                         </div>
                     </div>
@@ -266,7 +266,7 @@
                         <div class="col-md-12">
                             <div class="form-group">
                                 <label for="name">ໃບ 1,000</label>
-                                <input type="text" wire:model="nug" class="form-control money" placeholder="ໃບ 1,000" wire:keydown.enter="storeMoney">
+                                <input style="font-family: 'Times New Roman'" type="text" wire:model="nug" class="form-control money" placeholder="ໃບ 1,000" wire:keydown.enter="storeMoney">
                             </div>
                         </div>
                     </div>
@@ -274,7 +274,7 @@
                         <div class="col-md-12">
                             <div class="form-group">
                                 <label for="name">ໃບ 500</label>
-                                <input type="text" wire:model="hal" class="form-control money" placeholder="ໃບ 500" wire:keydown.enter="storeMoney">
+                                <input style="font-family: 'Times New Roman'" type="text" wire:model="hal" class="form-control money" placeholder="ໃບ 500" wire:keydown.enter="storeMoney">
                             </div>
                         </div>
                     </div>
