@@ -14,7 +14,7 @@
         font-weight: normal;
         font-style: normal;
         font-variant: normal;
-        src: url('fonts/PhetsarathOT.ttf') format('truetype');
+        src: url('fonts/phetsarath_ot.ttf') format('truetype');
     }
 
     * {

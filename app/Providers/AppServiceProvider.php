@@ -27,17 +27,18 @@ class AppServiceProvider extends ServiceProvider
     {
         Schema::defaultStringLength(191);
         View::composer('*', function ($view) {
-            // $arr = explode(',', auth()->user()->role_id);
-            // $check = Roles::where('del', 3)->get();
-            // foreach ($check as $item) {
-            //     foreach ($arr as $items) {
-            //         if ($item->id == $items) {
-            //             $rolename = $item->name;
-            //         }
-            //     }
-            // }
-            // dd($rolename == 'admin_bill');
-            $rolename= [];
+            if (!empty(auth()->user()->role_id)) {
+                $arr = explode(',', auth()->user()->role_id);
+                $check = Roles::where('del', 3)->get();
+                foreach ($check as $item) {
+                    foreach ($arr as $items) {
+                        if ($item->id == $items) {
+                            $rolename = $item->name;
+                        }
+                    }
+                }
+            }
+            $rolename = [];
             View::share(['rolename' => $rolename]);
         });
     }
