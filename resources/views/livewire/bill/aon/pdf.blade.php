@@ -40,17 +40,17 @@
                 </tr>
                 <tr>
                     <td style="padding-top: 18px;" colspan="2">
-                        <span style="font-family:'Phetsarath OT';padding-left: 100px;">
+                        <span style="font-family:'Phetsarath OT';padding-left: 100px; font-size: 14px;">
                         {{$data['branch_send']}}</span>
                     </td>
                 </tr>
                 <tr>
                     <td style="padding-top: 25px;">
-                        <span style="font-family:'Phetsarath OT';padding-left: 30px;">
+                        <span style="font-family:'Phetsarath OT';padding-left: 30px; font-size: 14px;">
                             {{$data['name_aon']}}</span>
                     </td>
                     <td style="padding-top: 25px;">
-                        <span style="font-family: 'Times New Roman';padding-left: 40px;">
+                        <span style="font-family: 'Times New Roman';padding-left: 40px; ">
                             {{$data['acno_nee']}}</span>
                     </td>
                 </tr>
@@ -62,7 +62,7 @@
                 </tr>
                 <tr>
                     <td colspan="2">
-                        <span style="font-family: 'Phetsarath OT';padding-left: 100px;">
+                        <span style="font-family: 'Phetsarath OT';padding-left: 100px; font-size: 14px;">
                             #{{$data['money_name']}}#</span>
                     </td>
                 </tr>
@@ -78,17 +78,17 @@
                 </tr>
                 <tr>
                     <td style="padding-top: 15px;" colspan="2">
-                        <span style="font-family: 'Phetsarath OT';padding-left: 100px;">
+                        <span style="font-family: 'Phetsarath OT';padding-left: 100px; font-size: 14px;">
                             {{$data['branch_receive']}}</span>
                     </td>
                 </tr>
                 <tr>
                     <td style="padding-top: 50px;" width="330px">
-                        <span style="font-family: 'Phetsarath OT';padding-left: 0px;">
+                        <span style="font-family: 'Phetsarath OT';padding-left: 0px; font-size: 14px;">
                             {{$data['note']}} </span>
                     </td>
                     <td></td>
-                </tr>
+                </tr>  
             </table>
 
         </div>

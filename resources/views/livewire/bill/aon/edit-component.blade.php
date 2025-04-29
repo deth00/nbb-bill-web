@@ -43,9 +43,10 @@
                         <div class="col-4" style="border-left-style: solid; border-left-color: #33cc99;">
                             <div class="form-group">
                                 <p>ປະເພດໃບໂອນ</p>
-                                <select name="type" id="type" class="form-control" wire:model="type">
-                                    <option value="OSD">ໃບໂອນຕ່າງແຂວງ</option>
-                                    <option value="ISD">ໃບໂອນພາຍໃນ</option>
+                                <select name="type" id="type" class="form-control" wire:model="type"
+                                    wire:click="changeType">
+                                    <option value="OSD">ໃບຂໍໂອນເງິນ</option>
+                                    <option value="ISD">ໃບໂອນບັນຊີເງິນ</option>
                                 </select>
                             </div>
                             <div class="form-group py-2">
