@@ -22,6 +22,7 @@ Route::get('/bill-thons', App\Livewire\Bill\BillThonComponent::class)->name('bil
 Route::get('/create-thons', App\Livewire\Bill\Thon\CreateComponent::class)->name('create-thon');
 Route::get('/edit-thons/{id}', App\Livewire\Bill\Thon\EditComponent::class)->name('edit-thon');
 Route::get('/print-thon/{id}', App\Livewire\Bill\Thon\PrintComponent::class)->name('print-thon');
+Route::get('/generate-pdf-thon/{id}', [App\Http\Controllers\PrintThonController::class, 'generatePDF'])->name('pdf-thon');
 
 Route::get('/bill-aons', App\Livewire\Bill\BillAonComponent::class)->name('bill-aon');
 Route::get('/create-aons', App\Livewire\Bill\Aon\CreateComponent::class)->name('create-aon');

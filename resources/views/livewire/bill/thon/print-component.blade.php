@@ -21,7 +21,7 @@
                         <div class="col-3">
                             <a href="{{route('bill-thon')}}" class="btn btn-danger float-end">ກັບຄືນ</a>
                             @if($data['del'] != 0)
-                            <a href="{{route('pdf-mop',$hidId)}}" target="_bank"
+                            <a href="{{route('pdf-thon',$hidId)}}" target="_bank"
                                 class="btn btn-primary float-end mx-2">ພິມບິນ</a>
                             @endif
                         </div>
@@ -97,7 +97,7 @@
                                             <tr class="text-center">
                                                 <td class="timenewroman-font py-2">1,000</td>
                                                 <td class="timenewroman-font py-2">
-                                                    {{number_format($data->nung,0,'.',',')}}</td>
+                                                    {{number_format($data->nug,0,'.',',')}}</td>
                                             </tr>
                                             <tr class="text-center">
                                                 <td class="timenewroman-font py-2">500</td>
@@ -107,7 +107,7 @@
                                             <tr class="text-center">
                                                 <td class="py-2">ລວມ / Total</td>
                                                 <td class="timenewroman-font py-2">
-                                                    {{number_format($data->san + $data->has + $data->sow + $data->sip + $data->har + $data->sng + $data->nung +$data->hal,0,'.',',')}}
+                                                    {{number_format($data->san + $data->has + $data->sow + $data->sip + $data->har + $data->sng + $data->nug +$data->hal,0,'.',',')}}
                                                 </td>
                                             </tr>
                                         </table>

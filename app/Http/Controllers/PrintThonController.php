@@ -1,0 +1,29 @@
+<?php
+
+namespace App\Http\Controllers;
+
+use Illuminate\Http\Request;
+use App\Models\BhaiThon;
+use App\Models\LogBhai;
+use Barryvdh\DomPDF\Facade\Pdf;
+
+class PrintThonController extends Controller
+{
+    public function generatePDF($id)
+    {
+        $data = BhaiThon::find($id); 
+        $data->del = 2;
+        $data->save();
+
+        $log = new LogBhai();
+        $log->user_id = auth()->user()->id;
+        $log->bhaithons_id = $data->id;
+        $log->stt = 2;
+        $log->valuedt = date('Y-m-d H:i:s');
+        $log->save();
+
+        $pdfs = mb_convert_encoding(\View::make('livewire.bill.thon.pdf', ['data'=>$data]), 'HTML-ENTITIES', 'UTF-8');
+        return PDF::loadHtml($pdfs)->setPaper('A4', 'portrait')->stream('ໃບຖອນເງິນສົດ.pdf',array('Attachment'=>0));
+        
+    }
+}
