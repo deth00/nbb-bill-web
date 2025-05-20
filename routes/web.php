@@ -6,6 +6,7 @@ use Illuminate\Support\Facades\Route;
 //     return view('welcome');
 // });
 Route::get('/', App\Livewire\Auth\LoginComponent::class)->name('login');
+Route::post('/auth-token-login', [\App\Http\Controllers\Auth\TokenLoginController::class, 'login']);
 Route::get('/dashboard', App\Livewire\DashboardComponent::class)->name('dashboard');
 
 Route::get('/core-cus', App\Livewire\Corebanking\CustomerComponent::class)->name('core-cus');

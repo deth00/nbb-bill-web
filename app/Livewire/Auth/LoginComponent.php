@@ -3,7 +3,7 @@
 namespace App\Livewire\Auth;
 
 use Livewire\Component;
-use Cookie;
+use Illuminate\Support\Facades\Cookie;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Http;
 use App\Models\User;
@@ -13,6 +13,13 @@ class LoginComponent extends Component
     public $param = [];
     public $username, $password;
     public $email;
+
+    public function mount()
+    {
+        if (Auth::check()) {
+            return redirect()->to('/dashboard');
+        }
+    }
 
     public function render()
     {
