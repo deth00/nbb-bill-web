@@ -153,7 +153,7 @@ class EditComponent extends Component
     
             if(!empty($this->sng)){
                 $sum = str_replace(',', '', $this->sng);
-                if (intval($sng)) {
+                if (intval($sum)) {
                     $sngs = $sum;
                     $this->sng2 = $sum;
                 }else{

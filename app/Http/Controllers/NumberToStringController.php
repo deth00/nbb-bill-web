@@ -263,7 +263,7 @@ class NumberToStringController extends Controller
             $numStr = ltrim($num, '0');
             $length = strlen($numStr);
             $result = "";
-            // dd($length );
+            
             // Handle numbers from 1,000,000,000,000 to 9,999,999,999,999
             if ($length == 13) {
                 $trillions = $numStr[0]; // First digit (1-9)
