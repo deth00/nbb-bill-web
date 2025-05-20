@@ -51,22 +51,12 @@
                     </td>
                 </tr>
                 <tr>
-                    <td style="padding-top: 12px;" colspan="2">
-                        <span style="font-family:'Phetsarath OT'; font-size: 17px; padding-left: 100px;">
-                            {{ $data['branch_send'] }}
-                        </span>
+
                     </td>
                 </tr>
                 <tr>
                     <td style="padding-top: 25px;">
-                        <span style="font-family:'Phetsarath OT'; font-size: 17px; padding-left: 30px;">
-                            {{ $data['name_aon'] }}
-                        </span>
-                    </td>
-                    <td style="padding-top: 25px;">
-                        <span style="font-family: 'Times New Roman';padding-left: 30px;">
-                            {{ $data['acno_nee'] }}
-                        </span>
+
                     </td>
                 </tr>
                 <tr>
@@ -78,9 +68,7 @@
                 </tr>
                 <tr>
                     <td colspan="2">
-                        <span style="font-family: 'Phetsarath OT'; font-size: 17px; padding-left: 100px;">
-                            # {{ $data['money_name'] }} #
-                        </span>
+
                     </td>
                 </tr>
                 <tr>
@@ -96,27 +84,12 @@
                     </td>
                 </tr>
                 <tr>
-                    <td style="padding-top: 16px; " colspan="2">
-                        <span style="font-family: 'Phetsarath OT'; font-size: 17px; padding-left: 100px;">
-                            {{ $data['branch_receive'] }}
-                        </span>
+
                     </td>
                 </tr>
                 <tr>
                     <td style="padding-top: 50px;" width="330px">
-                        {{-- <span
-                            style="font-family: 'Phetsarath OT';padding-left: 0px; line-height:15px; word-wrap: break-word;">
-                            {{ $data['note'] }}
-                        </span> --}}
 
-                        <span style="font-family: 'Phetsarath OT';padding-left: 0px; line-height:15px; word-wrap: break-word;">
-                            {{ $data['note'] }}
-                        </span>
-                    </td>
-                    <td>
-
-                    </td>
-                </tr>
             </table>
 
         </div>
