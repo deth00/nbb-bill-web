@@ -9,7 +9,7 @@
                 </li>
 
                 <li class="has-submenu">
-                    <a href="{{route('core-cus')}}"> <i class="mdi mdi-account-badge-horizontal"></i>ຂໍ້ມູນລູກຄ້າ</a>
+                    {{-- <a href="{{route('core-cus')}}"> <i class="mdi mdi-account-badge-horizontal"></i>ຂໍ້ມູນລູກຄ້າ</a> --}}
                 </li>
 
                 <li class="has-submenu">
