@@ -36,6 +36,7 @@ class CustomerComponent extends Component
     }
 
     public function searchData(){
+        // dd(date('m-d-Y',strtotime($this->start)), date('m-d-Y',strtotime($this->end)));
         $this->validate([
             'start'=>'required',
             'end'=>'required',
@@ -45,22 +46,25 @@ class CustomerComponent extends Component
         ]);
 
         $this->show = 'show';
-        $this->data = Http::withToken('eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyZXN1bHQiOnsiYXV0aF9pZCI6NSwiYXV0aF9uYW1lIjoibmJiIiwiYXV0aF9wYXNzIjoiJDJiJDEwJHptUWltdTBCOHI2UmRBWHI5OEc1ZWVwVWJ0a0djVk5SZFdqbGRLMS5vWnUzQTRGSEJFaVRxIiwiYXV0aF9zdGFydCI6IjIwMjMtMDktMTRUMDY6MDk6MDQuMDAwWiJ9LCJpYXQiOjE3MjM1MjMwODksImV4cCI6MTczMTI5OTA4OX0.JujhcWn8DEMZeeBKp3-gDTpmvgfERhkCqbp3752a-5Y')
-        ->post('192.168.10.55:6601/nbb/api/crd/get-schedule', [
+        $response = Http::withToken('eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyZXN1bHQiOnsiYXV0aF9pZCI6NSwiYXV0aF9uYW1lIjoibmJiIiwiYXV0aF9wYXNzIjoiJDJiJDEwJHptUWltdTBCOHI2UmRBWHI5OEc1ZWVwVWJ0a0djVk5SZFdqbGRLMS5vWnUzQTRGSEJFaVRxIiwiYXV0aF9zdGFydCI6IjIwMjMtMDktMTRUMDY6MDk6MDQuMDAwWiJ9LCJpYXQiOjE3NDc4MTcwOTgsImV4cCI6MTc2MzgwMTA5OH0.HQzHZtQbSjhLkMNBFp0b0ffRYln9aRv9LEKIWv1Jsx0')
+            ->post('192.168.10.55:6601/nbb/api/crd/get-schedule', [
             "auth_id" => 5,
             "auth_name" => "nbb",
             "branchid" => "0301",
-            "fromDate" => date('m-d-Y',strtotime($this->start)),
-            "toDate" => date('m-d-Y',strtotime($this->end))
-        ])->json();
-
-        if($this->data['success'] == 0){
+            "fromDate" => "05-11-2025",
+            "toDate" => "06-11-2025"
+            ])->json();
+            // dd($response);
+        if ($response['success'] == '1') {
+            $this->data = $response;
+        } else {
+            $this->dispatch('alert', type: 'error', message: 'ບໍ່ສາມາດເຊື່ອມຕໍ່ API ໄດ້');
             $this->data = [];
         }
     }
 
     public function showPrint(){
-        dd($this->selectedIds);
+        // dd($this->selectedIds);
         // $this->data2 = $this->sel_cus[0];
     }
 }

@@ -12,7 +12,7 @@ class CreateComponent extends Component
 {
     public $hiddenId;
     public $hideText = 'none', $check;
-    public $searchCus, $data_search1, $data_serach2, $data_serach_cus, $data_search_cus_acno;
+    public $searchCus, $data_search1, $data_search2, $data_serach_cus, $data_search_cus_acno;
     public $name_mop, $tel, $address, $acno_fak;
     public $money, $money_name, $crc = 'LAK';
     public $san, $has, $sow, $sip, $har, $sng, $nug, $hal;
@@ -27,15 +27,17 @@ class CreateComponent extends Component
     public function searchCusData()
     {
 
-        $this->data_search1 = Http::withToken('eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyZXN1bHQiOnsiYXV0aF9pZCI6NSwiYXV0aF9uYW1lIjoibmJiIiwiYXV0aF9wYXNzIjoiJDJiJDEwJHptUWltdTBCOHI2UmRBWHI5OEc1ZWVwVWJ0a0djVk5SZFdqbGRLMS5vWnUzQTRGSEJFaVRxIiwiYXV0aF9zdGFydCI6IjIwMjMtMDktMTRUMDY6MDk6MDQuMDAwWiJ9LCJpYXQiOjE3MjM1MjMwODksImV4cCI6MTczMTI5OTA4OX0.JujhcWn8DEMZeeBKp3-gDTpmvgfERhkCqbp3752a-5Y')
-            ->post('192.168.10.55:6604/nbb/api/ctm/get/info', [
+        $this->data_search1 = Http::withToken('eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyZXN1bHQiOnsiYXV0aF9pZCI6NSwiYXV0aF9uYW1lIjoibmJiIiwiYXV0aF9wYXNzIjoiJDJiJDEwJHptUWltdTBCOHI2UmRBWHI5OEc1ZWVwVWJ0a0djVk5SZFdqbGRLMS5vWnUzQTRGSEJFaVRxIiwiYXV0aF9zdGFydCI6IjIwMjMtMDktMTRUMDY6MDk6MDQuMDAwWiJ9LCJpYXQiOjE3NDc4MTcwOTgsImV4cCI6MTc2MzgwMTA5OH0.HQzHZtQbSjhLkMNBFp0b0ffRYln9aRv9LEKIWv1Jsx0')
+            ->timeout(30)
+            ->post('http://192.168.10.55:6604/nbb/api/ctm/get/info', [
                 "auth_id" => "5",
                 "auth_name" => "nbb",
                 "ctmcode" => $this->searchCus
             ])->json();
 
-        $this->data_search2 = Http::withToken('eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyZXN1bHQiOnsiYXV0aF9pZCI6NSwiYXV0aF9uYW1lIjoibmJiIiwiYXV0aF9wYXNzIjoiJDJiJDEwJHptUWltdTBCOHI2UmRBWHI5OEc1ZWVwVWJ0a0djVk5SZFdqbGRLMS5vWnUzQTRGSEJFaVRxIiwiYXV0aF9zdGFydCI6IjIwMjMtMDktMTRUMDY6MDk6MDQuMDAwWiJ9LCJpYXQiOjE3MjM1MjMwODksImV4cCI6MTczMTI5OTA4OX0.JujhcWn8DEMZeeBKp3-gDTpmvgfERhkCqbp3752a-5Y')
-            ->post('192.168.10.55:6604/nbb/api/ctm/get/credit', [
+        $this->data_search2 = Http::withToken('eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyZXN1bHQiOnsiYXV0aF9pZCI6NSwiYXV0aF9uYW1lIjoibmJiIiwiYXV0aF9wYXNzIjoiJDJiJDEwJHptUWltdTBCOHI2UmRBWHI5OEc1ZWVwVWJ0a0djVk5SZFdqbGRLMS5vWnUzQTRGSEJFaVRxIiwiYXV0aF9zdGFydCI6IjIwMjMtMDktMTRUMDY6MDk6MDQuMDAwWiJ9LCJpYXQiOjE3NDc4MTcwOTgsImV4cCI6MTc2MzgwMTA5OH0.HQzHZtQbSjhLkMNBFp0b0ffRYln9aRv9LEKIWv1Jsx0')
+            ->timeout(30)
+            ->post('http://192.168.10.55:6604/nbb/api/ctm/get/credit', [
                 "auth_id" => "5",
                 "auth_name" => "nbb",
                 "ctmcode" => $this->searchCus
@@ -193,7 +195,7 @@ class CreateComponent extends Component
 
     public function store()
     {
-        
+
         $bm = new BhaiMorp();
         $bm->no = '111';
 

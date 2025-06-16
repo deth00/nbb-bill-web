@@ -36,7 +36,7 @@
                 </tr>
                 <tr>
                     <td colspan="2" style="padding-top: 60px;"><span style="font-family: 'Times New Roman';padding-left: 50px;">{{$data['acno_nee']}}</span>
-                             <span style="font-family: 'Times New Roman';padding-left: 190px;">#{{number_format($data['money'],2,',','.')}}# </td>
+                             <span style="font-family: 'Times New Roman';padding-left: 190px;">#{{number_format($data['money'], 2, '.', ',')}}# </td>
                 </tr>
                 <tr>
                     <td colspan="2" style="padding-top: 10px;"><span style="font-family: 'Times New Roman';padding-left: 50px;">{{$data['acno_mee']}}</span>
