@@ -77,7 +77,7 @@
                                         <th class="p-2"> ເບິໂທ </th>
                                         <th class="p-2"> ຈຳນວນເງິນ </th>
                                         <th class="p-2"> ຊື່ຜູ້ຮັບ </th>
-                                        <th class="p-2"> ລາຍລະອຽດປາຍທາງ </th>
+                                        <th class="p-2"> ເນື້ອໃນ</th>
                                         <th class="p-2"> ສະຖານະ </th>
                                         <th class="p-2"> ປຸ່ມກົດ </th>
                                     </tr>
@@ -100,7 +100,7 @@
                                                 {{ $item->name_hub }}
                                             </td>
                                             <td class="text-center p-2">
-                                                {{ $item->address_hub }}
+                                                {{ $item->note }}
                                             </td>
                                             <td class="text-center p-2">
                                                 @if ($item->del == 1)
@@ -108,7 +108,7 @@
                                                 @elseif ($item->status == '0')
                                                     <span class="badge bg-danger">ຍົກເລີກ</span>
                                                 @elseif($item->del == 2)
-                                                    <span class="badge bg-warning">ລໍຖ້າອັບເເດດຂໍ້ມຸນ</span>
+                                                    <span class="badge bg-warning">ລໍຖ້າອັບເດດຂໍ້ມຸນ</span>
                                                 @elseif($item->status == 'WAP')
                                                     <span class="badge bg-success">ລໍຖ້າການອະນຸມັດ</span>
                                                 @elseif($item->status == 'FAP')

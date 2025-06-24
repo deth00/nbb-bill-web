@@ -57,7 +57,7 @@
                 console.warn('Blocked message from:', event.origin);
                 return;
             }
-            console.log('event:', event);
+            // console.log('event:', event);
             const token = event.data.token;
             const id = event.data.id;
             console.log('Token received:', token);
@@ -84,8 +84,8 @@
 
             if (res.ok) {
                 const data = await res.json();
-                console.log('User authenticated:', data);
-                console.log('User authenticated:', data.message);
+                // console.log('User authenticated:', data);
+                // console.log('User authenticated:', data.message);
                 window.location.href = '/dashboard'; // redirect
             } else {
                 console.error('Token login failed');

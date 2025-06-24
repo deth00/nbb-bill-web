@@ -11,7 +11,7 @@ use App\Http\Controllers\NumberToStringController;
 class CreateComponent extends Component
 {
     public $hiddenId;
-    public $hideText = 'none', $check;
+    public $hideText = 'none', $check, $notes;
     public $searchCus, $data_search1, $data_search2, $data_serach_cus, $data_search_cus_acno;
     public $name_mop, $tel, $address, $acno_fak;
     public $money, $money_name, $crc = 'LAK';
@@ -237,6 +237,7 @@ class CreateComponent extends Component
         $bm->lek_ac = $this->lek_ac;
         $bm->user_id = auth()->user()->id;
         $bm->department_id = auth()->user()->dpart_id;
+        $bm->note = $this->notes;
         $bm->save();
 
         $log = new LogBhai();
