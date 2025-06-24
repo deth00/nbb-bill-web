@@ -101,6 +101,14 @@
                                     wire:model="crc">
                             </div>
                         </div>
+                                              <div class="col-12">
+                            <br>
+                            <div class="form-group">
+                                <p>ເນື້ອໃນ</p>
+                                <textarea name="note" id="note" class="form-control" wire:model="notes"
+                                    placeholder="ເນື້ອໃນ"></textarea>
+                            </div>
+                        </div>
                         <div class="col-12">
                             <hr>
                         </div>
