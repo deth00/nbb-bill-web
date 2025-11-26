@@ -1,6 +1,6 @@
 <div>
 
-<div class="row">
+    <div class="row">
         <div class="col-12">
             <div class="page-title-box">
                 <div class="page-title-right">
@@ -28,8 +28,9 @@
                                     </span>
                                     <input type="date" name="start" id="start"
                                         class="form-control @error('start') is-invalid @enderror" wire:model="start">
-                                    @error('start') <span style="color: red"
-                                        class="error">{{ $message }}</span>@enderror
+                                    @error('start')
+                                        <span style="color: red" class="error">{{ $message }}</span>
+                                    @enderror
                                 </div>
                             </div>
                         </div>
@@ -44,7 +45,9 @@
                                     </span>
                                     <input type="date" name="end" id="end"
                                         class="form-control @error('end') is-invalid @enderror" wire:model="end">
-                                    @error('end') <span style="color: red" class="error">{{ $message }}</span>@enderror
+                                    @error('end')
+                                        <span style="color: red" class="error">{{ $message }}</span>
+                                    @enderror
                                 </div>
                             </div>
                         </div>
@@ -55,7 +58,7 @@
                                 class="mdi mdi-file-document-box-outline"></i>
                             ສະແດງ</button>
 
-                            <button class="btn btn-success phetsarath-font" wire:click="exportExcel"><i
+                        <button class="btn btn-success phetsarath-font" wire:click="exportExcel"><i
                                 class="mdi mdi-file-excel"></i>
                         </button>
                     </div>
@@ -66,87 +69,120 @@
 
                 <div class="row">
                     <div class="col-lg-12">
-                    <div class="right_content">
-                    <div class="row" style="display: {{$show}};">
-                        <div class="col-12">
-                            <div class="row">
-
-                                <div class="col-12 text-center">
-                                    <span>ສາທາລະນະລັດ ປະຊາທິປະໄຕ ປະຊາຊົນລາວ</span><br>
-                                    <span>ສັນຕິພາບ ເອກະລາດ ປະຊາທິປະໄຕ ເອກະພາບ ວັດທະນາຖາວອນ</span><br>
-                                    -----------&&&-----------
-                                </div>
-                                <div class="col-md-12">
+                        <div class="right_content">
+                            <div class="row" style="display: {{ $show }};">
+                                <div class="col-12">
                                     <div class="row">
+
+                                        <div class="col-12 text-center">
+                                            <span>ສາທາລະນະລັດ ປະຊາທິປະໄຕ ປະຊາຊົນລາວ</span><br>
+                                            <span>ສັນຕິພາບ ເອກະລາດ ປະຊາທິປະໄຕ ເອກະພາບ ວັດທະນາຖາວອນ</span><br>
+                                            -----------&&&-----------
+                                        </div>
                                         <div class="col-md-12">
-                                        <img src="{{asset('logo/logo-nbb.png')}}" alt="" height="100px">
+                                            <div class="row">
+                                                <div class="col-md-12">
+                                                    <img src="{{ asset('logo/logo-nbb.png') }}" alt=""
+                                                        height="100px">
+                                                </div>
+                                                <div class="col-md-6">
+                                                    ທະນາຄານ ນະໂຍບາຍ
+                                                </div>
+                                                <div class="col-md-6 text-right">
+                                                    ນະຄອນຫຼວງວຽງຈັນ, ວັນທີ: {{ date('d/m/Y', strtotime(now())) }}
+                                                </div>
+                                            </div>
                                         </div>
-                                        <div class="col-md-6">
-                                            ທະນາຄານ ນະໂຍບາຍ
+                                        <div class="col-12 text-center py-4">
+                                            <h4><b class="phetsarath-font text-black"
+                                                    style="color: black;"><u>ລາຍງານຂໍ້ມູນໃບມອບ</u></b></h4>
+                                            <p class="py-1">
+                                                ແຕ່ວັນທີ @if ($starts)
+                                                    {{ date('d/m/Y', strtotime($starts)) }}
+                                                @else
+                                                    ..........................
+                                                    @endif ຫາ @if ($ends)
+                                                        {{ date('d/m/Y', strtotime($ends)) }}
+                                                    @else
+                                                        ..........................
+                                                    @endif
+                                            </p>
                                         </div>
-                                        <div class="col-md-6 text-right">
-                                            ນະຄອນຫຼວງວຽງຈັນ, ວັນທີ: {{date('d/m/Y',strtotime(now()))}}
+                                    </div>
+                                    <div class="row py-2">
+                                        <div class="col-12">
+                                            <table border="1" width="100%">
+                                                <thead>
+                                                    <tr class="text-center">
+                                                        <th class="p-2"> ລຳດັບ </th>
+                                                        <th class="p-2"> ວັນທີ </th>
+                                                        <th class="p-2"> ຊື່ຜູ້ມອບ </th>
+                                                        <th class="p-2"> ທີ່ຢູ່ </th>
+                                                        <th class="p-2"> ເບິໂທ </th>
+                                                        <th class="p-2"> ຈຳນວນເງິນ </th>
+                                                        <th class="p-2"> ຊື່ຜູ້ຮັບ </th>
+                                                        <th class="p-2"> ຊື່ຜູ້ສ້າງໃບມອບ </th>
+                                                        <th class="p-2"> ວັນທີສ້າງໃບມອບ </th>
+                                                        <th class="p-2"> ຊື່ຜູ້ອັບເດດຂໍ້ມູນ </th>
+                                                        <th class="p-2"> ວັນທີອັບເດດຂໍ້ມູນ </th>
+                                                        <th class="p-2"> ຊື່ຜູ້ອະນຸມັດຂໍ້ມູນ </th>
+                                                        <th class="p-2"> ວັນທີອະນຸມັດຂໍ້ມູນ </th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    @php $no = 1; @endphp
+                                                    @forelse ($data as $key => $item)
+                                                        <tr>
+                                                            <td class="text-center p-2">{{ $no++ }}</td>
+                                                            <td class="text-center p-2">
+                                                                {{ date('d/m/Y', strtotime($item['valuedt'])) }}
+                                                            </td>
+                                                            <td class="text-center p-2">{{ $item['name_mop'] }}
+                                                            </td>
+                                                            <td class="text-center p-2">{{ $item['address'] }}
+                                                            </td>
+                                                            <td class="text-center p-2">{{ $item['tel'] }}
+                                                            </td>
+                                                            <td class="text-right p-2"
+                                                                style="text-align: right;">
+                                                                {{ number_format($item['money']) }}</td>
+                                                            <td class="text-center p-2">
+                                                                {{ $item['name_hub'] }}
+                                                            </td>
+                                                            {{-- @php
+                                                                $log_data = $item['log_data'];
+                                                                $first_log = !empty($log_data) ? $log_data[0] : null;
+                                                                $stt_values = collect($log_data)->pluck('stt')->toArray();
+                                                            @endphp --}}
+                                                            {{-- <td class="text-center p-2">{{ $item['user_id']}}</td>
+                                                            <td class="text-center p-2">{{ $item['valuedt']}}</td> --}}
+                                                            @foreach ($item['log_data'] as $log)
+                                                                @if ($log['stt'] == 1)
+                                                                    <td class="text-center p-2">{{ $log['user_id']}}</td>
+                                                                    <td class="text-center p-2">{{ $log['valuedt']}}</td>
+                                                                @elseif ($log['stt'] == 3)
+                                                                    <td class="text-center p-2">{{ $log['user_id']}}</td>
+                                                                    <td class="text-center p-2">{{ $log['valuedt']}}</td>
+                                                                @elseif ($log['stt'] == 4)
+                                                                    <td class="text-center p-2">{{ $log['user_id']}}</td>
+                                                                    <td class="text-center p-2">{{ $log['valuedt']}}</td>
+                                                                @endif
+                                                            @endforeach
+                                                        </tr>
+                                                    @empty
+                                                        <tr class="text-center">
+                                                            <td class="p-2" colspan="13" style="color: #787878;">
+                                                                ບໍ່ມີຂໍ້ມູນໃບມອບເງິນສົດ</td>
+                                                        </tr>
+                                                    @endforelse
+                                                </tbody>
+                                            </table>
                                         </div>
                                     </div>
                                 </div>
-                                <div class="col-12 text-center py-4">
-                                    <h4><b class="phetsarath-font text-black"
-                                            style="color: black;"><u>ລາຍງານຂໍ້ມູນໃບມອບ</u></b></h4>
-                                    <p class="py-1">
-                                        ແຕ່ວັນທີ @if($starts) {{date('d/m/Y', strtotime($starts))}} @else
-                                        ..........................@endif ຫາ @if($ends)
-                                        {{date('d/m/Y', strtotime($ends))}}
-                                        @else .......................... @endif
-                                    </p>
-                                </div>
                             </div>
-                            <div class="row py-2">
-                                <div class="col-12">
-                                    <table border="1" width="100%">
-                                    <thead>
-                                        <tr class="text-center">
-                                            <th class="p-2"> ລຳດັບ </th>
-                                            <th class="p-2"> ວັນທີ </th>
-                                            <th class="p-2"> ຊື່ຜູ້ມອບ </th>
-                                            <th class="p-2"> ທີ່ຢູ່ </th>
-                                            <th class="p-2"> ເບິໂທ </th>
-                                            <th class="p-2"> ຈຳນວນເງິນ </th>
-                                            <th class="p-2"> ຊື່ຜູ້ຮັບ </th>
-                                            <th class="p-2"> ລາຍລະອຽດປາຍທາງ </th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        @php $no = 1; @endphp
-                                        @forelse ($data as $key => $item)
-                                        <tr>
-                                            <td class="text-center p-2">{{$no++}}</td>
-                                            <td class="text-center p-2">
-                                                {{date('d/m/Y', strtotime($item->valuedt))}}</td>
-                                            <td class="text-center p-2">{{$item->name_mop}}</td>
-                                            <td class="text-center p-2">{{$item->address}}</td>
-                                            <td class="text-center p-2">{{$item->tel}}</td>
-                                            <td class="text-right p-2" style="text-align: right;">
-                                                {{number_format($item->money)}}</td>
-                                            <td class="text-center p-2">
-                                                {{$item->name_hub}}
-                                            </td>
-                                            <td class="text-center p-2">
-                                                {{$item->address_hub}}
-                                            </td>
-                                        </tr>
-                                        @empty
-                                        <tr class="text-center">
-                                            <td class="p-2" colspan="10" style="color: #787878;">ບໍ່ມີຂໍ້ມູນໃບມອບເງິນສົດ</td>
-                                        </tr>
-                                        @endforelse
-                                    </tbody>
-                                    </table>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
 
-                </div>
+                        </div>
                     </div>
                 </div>
 

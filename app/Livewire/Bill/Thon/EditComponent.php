@@ -12,7 +12,8 @@ class EditComponent extends Component
     public $hiddenId;
     public $hideText = 'none', $check;
     public $searchCus = '0508099576', $data_search1, $data_serach2, $data_serach_cus, $data_search_cus_acno;
-    public $name_mop, $tel, $address, $acno_fak;
+    public $name_mop, $tel, $address, $acno_fak, $detail, $type, $money_aon;
+    public $data_search2;
     public $money, $money_name, $crc = 'LAK';
     public $san, $has, $sow, $sip, $har, $sng, $nug, $hal;
     public $san2, $has2, $sow2, $sip2, $har2, $sng2, $nug2, $hal2;

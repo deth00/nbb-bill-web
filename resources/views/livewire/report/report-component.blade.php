@@ -58,6 +58,13 @@
                                             <td class="text-center">
                                                 <a href="{{route('report-aon')}}" class="btn btn-sm btn-primary"><i class="fa fa-eye"></i></a>
                                             </td>
+                                            <tr>
+                                                <td class="text-center">3</td>
+                                                <td class="p-2">ລາຍງານສົ່ງ Core Banking</td>
+                                                <td class="text-center">
+                                                    <a href="{{route('report-core')}}" class="btn btn-sm btn-primary"><i class="fa fa-eye"></i></a>
+                                                </td>
+                                            </tr>
                                         </tr>
                                     </tbody>
                                 </table>

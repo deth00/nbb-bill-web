@@ -105,7 +105,7 @@
                                             <td class="text-center p-2">
                                                 @if ($item->del == 1)
                                                     <span class="badge bg-secondary">ຍັງບໍ່ທັນພິມ</span>
-                                                @elseif ($item->status == '0')
+                                                @elseif ($item->del == '0')
                                                     <span class="badge bg-danger">ຍົກເລີກ</span>
                                                 @elseif($item->del == 2)
                                                     <span class="badge bg-warning">ລໍຖ້າອັບເດດຂໍ້ມຸນ</span>
