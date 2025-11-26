@@ -38,5 +38,6 @@ Route::get('/report', App\Livewire\Report\ReportComponent::class)->name('report'
 Route::get('/report-mop', App\Livewire\Report\ReportMopComponent::class)->name('report-mop');
 Route::get('/report-thon', App\Livewire\Report\ReportThonComponent::class)->name('report-thon');
 Route::get('/report-aon', App\Livewire\Report\ReportAonComponent::class)->name('report-aon');
+Route::get('/report-core', App\Livewire\Report\ReportCoreComponent::class)->name('report-core');
 
 Route::get('/logout', App\Livewire\Auth\LoginComponent::class,'logout')->name('logout');

@@ -4,13 +4,14 @@ namespace App\Livewire\Bill;
 
 use Livewire\Component;
 use App\Models\BhaiMorp;
+use App\Models\LogBhai;
 
 class BillMorpComponent extends Component
 {
     public $data, $count;
     public $search, $dataQ = 15, $dateS, $dateE;
     public $hiddenId, $name, $money, $note;
-
+    
 
     public function render()
     {
@@ -67,6 +68,14 @@ class BillMorpComponent extends Component
         $doc->status = 'FAP';
         $doc->del = 4;
         $doc->save();
+
+        $log = new LogBhai();
+        $log->user_id = auth()->user()->id;
+        $log->bhaimops_id = $this->hiddenId;
+        $log->stt = 4;
+        $log->valuedt = date('Y-m-d H:i:s');
+        $log->save();
+
         $this->dispatch('hide-modal-ap');
         $this->dispatch('alert', type: 'success', message: 'ອະນຸມັດສຳເລັດ');
     }

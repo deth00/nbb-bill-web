@@ -10,4 +10,9 @@ class BhaiMorp extends Model
     use HasFactory;
 
     protected $table = "bhaimops";
+
+    public function logBhai()
+    {
+        return $this->hasMany(LogBhai::class, 'bhaimops_id', 'id');
+    }
 }

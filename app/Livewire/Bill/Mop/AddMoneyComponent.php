@@ -12,7 +12,8 @@ class AddMoneyComponent extends Component
     public $hiddenId;
     public $hideText = 'none', $check;
     public $searchCus, $data_search1, $data_serach2, $data_serach_cus, $data_search_cus_acno;
-    public $name_mop, $tel, $address, $acno_fak;
+    public $name_mop, $tel, $address, $acno_fak, $detail, $type, $money_aon;
+    public $data_search2;
     public $money, $money_name, $crc = 'LAK';
     public $san, $has, $sow, $sip, $har, $sng, $nug, $hal;
     public $san2, $has2, $sow2, $sip2, $har2, $sng2, $nug2, $hal2;
@@ -151,7 +152,7 @@ class AddMoneyComponent extends Component
 
             if (!empty($this->sng)) {
                 $sum = str_replace(',', '', $this->sng);
-                if (intval($sng)) {
+                if (intval($sum)) {
                     $sngs = $sum;
                     $this->sng2 = $sum;
                 } else {
